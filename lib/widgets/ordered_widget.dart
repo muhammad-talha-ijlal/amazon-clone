@@ -2,6 +2,7 @@ import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class OrderedProducts extends StatefulWidget {
   OrderedProducts({super.key, required this.product, required this.quantity});
   Product product;
@@ -77,6 +78,5 @@ class _OrderedProductsState extends State<OrderedProducts> {
         ],
       ),
     );
-    ;
   }
 }

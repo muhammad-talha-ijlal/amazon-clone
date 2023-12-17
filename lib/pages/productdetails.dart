@@ -23,7 +23,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   late List<Product> product_list;
   bool isLoading = false;
   int curr_page = 0;
-  @override
   void search_again(String search) async {
     Navigator.pushNamed(context, SearchedScreen.routeName, arguments: search);
   }

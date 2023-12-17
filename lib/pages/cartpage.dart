@@ -1,12 +1,10 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/pages/addressScreen.dart';
-import 'package:amazonclone/pages/productdetails.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/cart_product.dart';
 import 'package:amazonclone/widgets/cart_subtotal.dart';
-import 'package:amazonclone/widgets/searched_product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -169,7 +167,7 @@ class _cartpageState extends State<cartpage> {
                     child: ListView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: user.user.cart.length!,
+                        itemCount: user.user.cart.length,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
                           return cart_product(index: index);

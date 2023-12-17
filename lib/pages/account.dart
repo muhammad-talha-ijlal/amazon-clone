@@ -8,7 +8,7 @@ import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/home_services.dart';
 import 'package:amazonclone/services/services_auth.dart';
 import 'package:amazonclone/widgets/order.dart';
-import 'package:amazonclone/widgets/searched_product.dart';
+// import 'package:amazonclone/widgets/searched_product.dart';
 import 'package:amazonclone/widgets/top_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

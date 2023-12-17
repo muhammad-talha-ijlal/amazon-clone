@@ -5,7 +5,7 @@ import 'package:amazonclone/const/snackbar.dart';
 import 'package:amazonclone/services/admin_services.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/field.dart';
-import 'package:amazonclone/widgets/scrollhome.dart';
+// import 'package:amazonclone/widgets/scrollhome.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';

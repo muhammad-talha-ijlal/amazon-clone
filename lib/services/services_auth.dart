@@ -42,7 +42,6 @@ class auth_service {
       print(res.statusCode);
 
       // snack bar and https error
-      // ignore: use_build_context_synchronously
       httpsError(
           response: res,
           context: context,
@@ -216,6 +215,5 @@ class auth_service {
     } catch (e) {
       snackbar(context, e.toString());
     }
-    // ignore: use_build_context_synchronously
   }
 }

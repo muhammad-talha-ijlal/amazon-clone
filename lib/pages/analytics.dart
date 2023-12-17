@@ -1,7 +1,7 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/sales.dart';
 import 'package:amazonclone/services/admin_services.dart';
-import 'package:amazonclone/widgets/charts.dart';
+// import 'package:amazonclone/widgets/charts.dart';
 import 'package:flutter/material.dart';
 
 class analytics extends StatefulWidget {

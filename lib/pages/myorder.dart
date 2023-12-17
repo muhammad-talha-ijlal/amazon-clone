@@ -1,10 +1,7 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/order.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/productdetails.dart';
 import 'package:amazonclone/services/home_services.dart';
 import 'package:amazonclone/widgets/order.dart';
-import 'package:amazonclone/widgets/stars.dart';
 import 'package:flutter/material.dart';
 
 class orderAll extends StatefulWidget {

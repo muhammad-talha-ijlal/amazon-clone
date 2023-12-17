@@ -1,5 +1,4 @@
 import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
 import 'package:amazonclone/pages/addressScreen.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
@@ -18,9 +17,6 @@ class home_actual_page extends StatefulWidget {
 class _home_actual_pageState extends State<home_actual_page> {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
-
-    TextEditingController search = TextEditingController();
     void navigateTosearchScreen(String query) {
       Navigator.pushNamed(context, SearchedScreen.routeName, arguments: query);
     }

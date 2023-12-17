@@ -94,7 +94,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
                       children: [
                         Container(
                           padding: const EdgeInsets.fromLTRB(30, 6, 6, 8),
-                          width: 350,
+                          width: 300,
                           height: 50,
                           child: Material(
                             borderRadius: BorderRadius.circular(10),

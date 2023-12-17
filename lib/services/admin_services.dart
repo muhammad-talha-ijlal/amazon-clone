@@ -10,7 +10,6 @@ import 'package:amazonclone/model/order.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/model/sales.dart';
 import 'package:amazonclone/providers/userproviders.dart';
-import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';

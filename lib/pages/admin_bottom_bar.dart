@@ -3,7 +3,7 @@ import 'package:amazonclone/pages/admin_order_details.dart';
 import 'package:amazonclone/pages/admin_screen.dart';
 import 'package:amazonclone/pages/analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
+// import 'package:badges/badges.dart' as badges;
 
 class bottom_admin_bar extends StatefulWidget {
   const bottom_admin_bar({super.key});
