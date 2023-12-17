@@ -1,6 +1,8 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/const/snackbar.dart';
+import 'package:amazonclone/model/Address.dart';
 import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/services/DatabaseService.dart';
 import 'package:amazonclone/services/services_auth.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/field.dart';
@@ -28,8 +30,27 @@ class _addressFormState extends State<addressForm> {
 
   final auth_service authServ = auth_service();
 
+  String address = "";
+
   final address_key = GlobalKey<FormState>();
   String addressToBeUsed = "";
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch the address from local storage and populate text fields if available
+    populateAddressFromLocalStorage();
+  }
+
+  void populateAddressFromLocalStorage() async {
+    final addresses = await DatabaseService()
+        .getEntries(); // Fetch addresses from local storage
+
+    // Check if addresses are available and set the text fields if not empty
+    if (addresses.isNotEmpty) {
+      address = addresses.first.toString();
+    }
+  }
 
   void payFunction(String addressFromtheProvider, double totalSum) {
     addressToBeUsed = "";
@@ -69,8 +90,11 @@ class _addressFormState extends State<addressForm> {
 
   @override
   Widget build(BuildContext context) {
-    var address = context.watch<UserProvider>().user.address;
     final user = context.watch<UserProvider>().user;
+
+    if (address.isEmpty) {
+      address = context.watch<UserProvider>().user.address;
+    }
 
     num sum = 0;
     user.cart.map(
@@ -210,8 +234,15 @@ class _addressFormState extends State<addressForm> {
                                       context: context,
                                       address:
                                           '${flat.text},${area.text},${city.text} - ${pinode.text}');
+
+                                  DatabaseService().insertEntry(Address(
+                                      flat: flat.text,
+                                      area: area.text,
+                                      city: city.text,
+                                      zipCode: pinode.text));
                                 }
-                              }),
+                              },
+                              color: GlobalVariables.buttonColor),
                           widget.isPay
                               ? Padding(
                                   padding: const EdgeInsets.only(top: 10),
@@ -220,8 +251,7 @@ class _addressFormState extends State<addressForm> {
                                       onTap: () {
                                         payFunction(address, sum.toDouble());
                                       },
-                                      color: const Color.fromARGB(
-                                          223, 254, 180, 19)),
+                                      color: GlobalVariables.buttonColor),
                                 )
                               : Container(),
                         ],

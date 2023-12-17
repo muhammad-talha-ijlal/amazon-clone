@@ -14,12 +14,12 @@ class orderAll extends StatefulWidget {
 }
 
 class _orderAllState extends State<orderAll> {
-  List<Order> product_list = [];
+  List<Order> orderList = [];
   home_back_services serv = home_back_services();
   bool isLoading = true;
 
   void fetchcatproducts() async {
-    product_list = await serv.fetchMyOrders(
+    orderList = await serv.fetchMyOrders(
       context: context,
     );
     isLoading = false;
@@ -93,7 +93,7 @@ class _orderAllState extends State<orderAll> {
                               ),
                             ),
                           )
-                        : product_list.isEmpty
+                        : orderList.isEmpty
                             ? Opacity(
                                 opacity: 0.4,
                                 child: Container(
@@ -111,7 +111,7 @@ class _orderAllState extends State<orderAll> {
                                 physics:
                                     NeverScrollableScrollPhysics(), // otherwise it will not scroll
                                 scrollDirection: Axis.vertical,
-                                itemCount: product_list.length,
+                                itemCount: orderList.length,
                                 shrinkWrap: true,
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
@@ -119,20 +119,20 @@ class _orderAllState extends State<orderAll> {
                                   crossAxisCount: 2, mainAxisExtent: 300,
                                 ),
                                 itemBuilder: (context, index) {
-                                  Order product = product_list[index];
+                                  Order order = orderList[index];
                                   return Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: OrderProduct(
-                                        src: product.products[0].images[0],
-                                        name: product.products[0].name,
-                                        status: product.status == 0
+                                        src: order.products[0].images[0],
+                                        name: order.products[0].name,
+                                        status: order.status == 0
                                             ? "Ordered"
-                                            : product.status == 1
+                                            : order.status == 1
                                                 ? "Dispatched"
-                                                : product.status == 2
+                                                : order.status == 2
                                                     ? "Out For Delivery"
                                                     : "Delivered",
-                                        order: product),
+                                        order: order),
                                   );
                                 }),
                   )

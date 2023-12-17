@@ -5,10 +5,31 @@ import 'package:amazonclone/const/snackbar.dart';
 import 'package:amazonclone/services/admin_services.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/field.dart';
-// import 'package:amazonclone/widgets/scrollhome.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+
+// to pick images from gallery
+Future<List<File>> pickImages() async {
+  List<File> images = []; // multiple product images will get selected
+
+  try {
+    // version 4.5.1
+    var files_var = await FilePicker.platform
+        .pickFiles(type: FileType.image, allowMultiple: true);
+
+    if (files_var != null && files_var.files.isNotEmpty) {
+      for (var i = 0; i < files_var.files.length; i++) {
+        images.add(File(files_var.files[i].path!));
+      }
+    }
+  } catch (e) {
+    debugPrint(e.toString());
+  }
+
+  return images;
+}
 
 class add_product_screen extends StatefulWidget {
   const add_product_screen({super.key});

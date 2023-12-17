@@ -319,7 +319,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10),
-                    child: custom_btn(text: 'Buy Now', onTap: () {}),
+                    child: custom_btn(
+                        text: 'Buy Now',
+                        onTap: () {},
+                        color: GlobalVariables.buttonColor),
                   ),
                   const SizedBox(
                     height: 10,

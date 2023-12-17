@@ -48,9 +48,6 @@ class _adminProductShowState extends State<adminProductShow> {
 
   @override
   Widget build(BuildContext context) {
-    final ProductDetailsServices prd_serv = ProductDetailsServices();
-    final user = Provider.of<UserProvider>(context).user;
-
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0),

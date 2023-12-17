@@ -115,7 +115,8 @@ class _AuthScreenState extends State<AuthScreen> {
                                         .validate()) {
                                       signupuser();
                                     }
-                                  })
+                                  },
+                                  color: GlobalVariables.buttonColor)
                             ],
                           )),
                     )
@@ -167,7 +168,8 @@ class _AuthScreenState extends State<AuthScreen> {
                                         .validate()) {
                                       signinuser();
                                     }
-                                  })
+                                  },
+                                  color: GlobalVariables.buttonColor)
                             ],
                           )),
                     )
