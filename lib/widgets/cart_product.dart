@@ -128,7 +128,7 @@ class _cart_productState extends State<cart_product> {
                   children: [
                     Container(
                       padding: const EdgeInsets.only(left: 10),
-                      width: 235,
+                      width: 200,
                       child: Text(
                         product.name,
                         style: const TextStyle(fontSize: 20),

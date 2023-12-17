@@ -26,7 +26,6 @@ class _analyticsState extends State<analytics> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getEarnings();
   }
@@ -108,7 +107,7 @@ class _analyticsState extends State<analytics> {
                                 fontSize: 22, fontWeight: FontWeight.bold),
                           ),
                         ),
-                        SalesData(sales: earning)
+                        //SalesData(sales: earning)
                       ],
                     ),
                   ),

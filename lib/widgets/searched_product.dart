@@ -55,7 +55,7 @@ class _search_result_prodcutState extends State<search_result_prodcut> {
                   children: [
                     Container(
                       padding: const EdgeInsets.only(left: 10),
-                      width: 235,
+                      width: 200,
                       child: Text(
                         widget.product.name,
                         style: const TextStyle(fontSize: 18),

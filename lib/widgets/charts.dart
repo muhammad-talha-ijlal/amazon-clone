@@ -93,7 +93,7 @@ Widget getBottomTitle(double value, TitleMeta meta) {
       color: Colors.black87, fontSize: 20, fontWeight: FontWeight.bold);
 
   Widget text;
-  switch (value.toInt()) {
+  switch (value) {
     case 1:
       text = const Text(
         "Mobiles",
@@ -139,7 +139,7 @@ Widget getRightTitle(double value, TitleMeta meta) {
       color: Colors.black87, fontSize: 20, fontWeight: FontWeight.bold);
 
   Widget text;
-  switch (value.toInt()) {
+  switch (value) {
     case 1:
       text = const Text(
         "",

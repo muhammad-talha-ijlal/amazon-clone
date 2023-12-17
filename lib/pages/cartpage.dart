@@ -62,7 +62,7 @@ class _cartpageState extends State<cartpage> {
                     children: [
                       Container(
                         padding: const EdgeInsets.fromLTRB(20, 6, 6, 8),
-                        width: 360,
+                        width: 300,
                         height: 50,
                         child: Material(
                           borderRadius: BorderRadius.circular(10),
@@ -245,7 +245,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
           const total_checkout(),
           user.user.cart.isNotEmpty
               ? Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: custom_btn(
                     text: 'Proceed to CheckOut ${user.user.cart.length} items',
                     onTap: () {

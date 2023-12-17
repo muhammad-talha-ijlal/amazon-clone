@@ -70,7 +70,6 @@ class auth_service {
       print(res.statusCode);
 
       // snack bar and https error
-      // ignore: use_build_context_synchronously
       httpsError(
           response: res,
           context: context,
@@ -78,12 +77,10 @@ class auth_service {
             // shared prefernece will be used to store the token to signin
             // providers will be used to keep the user details
             SharedPreferences prefs = await SharedPreferences.getInstance();
-            // ignore: use_build_context_synchronously
             Provider.of<UserProvider>(context, listen: false).setUser(res.body);
             prefs.setString("x-auth-token", jsonDecode(res.body)['token']);
             prefs.setString("x-auth-mail", jsonDecode(res.body)['email']);
             prefs.setString("x-auth-pass", jsonDecode(res.body)['password']);
-            // ignore: use_build_context_synchronously
             Navigator.pushNamedAndRemoveUntil(
                 context, home.routeName, (route) => false);
           });
