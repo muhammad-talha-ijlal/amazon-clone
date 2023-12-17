@@ -1,19 +1,19 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/Order.dart';
-import 'package:amazonclone/pages/orderdetails.dart';
-import 'package:amazonclone/services/admin_services.dart';
+import 'package:amazonclone/pages/OrderDetail.dart';
+import 'package:amazonclone/services/AdminService.dart';
 import 'package:flutter/material.dart';
 
-class ordered_admin_screen extends StatefulWidget {
-  const ordered_admin_screen({super.key});
+class AdminOrderDetails extends StatefulWidget {
+  const AdminOrderDetails({super.key});
 
   @override
-  State<ordered_admin_screen> createState() => _ordered_admin_screenState();
+  State<AdminOrderDetails> createState() => _ordered_admin_screenState();
 }
 
-class _ordered_admin_screenState extends State<ordered_admin_screen> {
+class _ordered_admin_screenState extends State<AdminOrderDetails> {
   List<Order>? orders = [];
-  final adminServices serv = adminServices();
+  final AdminService serv = AdminService();
   bool isLoading = true;
 
   fetchOrders() async {
@@ -203,7 +203,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                                       child: GestureDetector(
                                         onTap: () {
                                           Navigator.pushNamed(
-                                              context, orderDetails.routeName,
+                                              context, OrderDetails.routeName,
                                               arguments: order);
                                         },
                                         child: Padding(

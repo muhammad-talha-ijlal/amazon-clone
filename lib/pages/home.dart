@@ -1,23 +1,23 @@
-import 'package:amazonclone/pages/auth_screen.dart';
-import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/widgets/BottomNavBar.dart';
+import 'package:amazonclone/pages/AuthPage.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class home extends StatefulWidget {
+class Home extends StatefulWidget {
   static const String routeName = '/home';
-  const home({super.key});
+  const Home({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<Home> createState() => _HomeState();
 }
 
-class _homeState extends State<home> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
       appBar: AppBar(
         title: const Text("hello"),
       ),

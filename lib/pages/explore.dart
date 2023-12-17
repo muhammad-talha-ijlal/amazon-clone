@@ -1,27 +1,27 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/productdetails.dart';
-import 'package:amazonclone/services/home_services.dart';
+import 'package:amazonclone/model/Product.dart';
 import 'package:amazonclone/widgets/SeacrhResultProduct.dart';
+import 'package:amazonclone/pages/ProductPage.dart';
+import 'package:amazonclone/services/HomeService.dart';
 import 'package:flutter/material.dart';
 
-class explore extends StatefulWidget {
-  const explore({super.key, required this.searchquery});
+class Explore extends StatefulWidget {
+  const Explore({super.key, required this.searchquery});
   static const String routeName = '/search-screen';
   final String searchquery;
 
   @override
-  State<explore> createState() => _exploreState();
+  State<Explore> createState() => _exploreState();
 }
 
-class _exploreState extends State<explore> {
-  late List<Product> product_list;
+class _exploreState extends State<Explore> {
+  late List<Product> productList;
   bool isLoading = true;
 
 // function to fetch the searched products
   fetchedProdcuts() async {
-    home_back_services sev = home_back_services();
-    product_list = await sev.fetchSearchProducts(
+    HomeService sev = HomeService();
+    productList = await sev.fetchSearchProducts(
         context: context, query: widget.searchquery);
 
     isLoading = false;
@@ -61,7 +61,7 @@ class _exploreState extends State<explore> {
                         ),
                       ),
                     )
-                  : product_list.isEmpty
+                  : productList.isEmpty
                       ? Opacity(
                           opacity: 0.4,
                           child: Container(
@@ -78,17 +78,17 @@ class _exploreState extends State<explore> {
                       : ListView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: product_list.length,
+                          itemCount: productList.length,
                           scrollDirection: Axis.vertical,
                           itemBuilder: (context, index) {
                             return GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(
                                     context, ProductDetailScreen.routeName,
-                                    arguments: product_list[index]);
+                                    arguments: productList[index]);
                               },
                               child: SeacrhResultProduct(
-                                  product: product_list[index]),
+                                  product: productList[index]),
                             );
                           }),
             ),

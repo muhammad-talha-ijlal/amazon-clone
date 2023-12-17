@@ -1,10 +1,10 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/pages/admin_bottom_bar.dart';
-import 'package:amazonclone/pages/auth_screen.dart';
-import 'package:amazonclone/pages/home.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/pages/AdminBar.dart';
+import 'package:amazonclone/pages/AuthPage.dart';
+import 'package:amazonclone/pages/Home.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:amazonclone/router.dart';
-import 'package:amazonclone/services/services_auth.dart';
+import 'package:amazonclone/services/AuthService.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -44,17 +44,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final auth_service authService = auth_service();
+  final AuthService authService = AuthService();
   late String? token = "";
   bool loading = true;
   @override
   void initState() {
     super.initState();
     // authService..getuserdata(context: context);
-    token_shared();
+    tokenShared();
   }
 
-  void token_shared() async {
+  void tokenShared() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     token = pref.getString('x-auth-token');
     authService.getUser(context: context);
@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
         : token == null || token == ""
             ? const AuthScreen()
             : user.type == 'user'
-                ? const home()
+                ? const Home()
                 : user.type != 'admin'
                     ? Scaffold(
                         body: Center(
@@ -90,6 +90,6 @@ class _MyAppState extends State<MyApp> {
                           fit: BoxFit.fitWidth,
                         )),
                       )
-                    : const bottom_admin_bar();
+                    : const AdminBar();
   }
 }

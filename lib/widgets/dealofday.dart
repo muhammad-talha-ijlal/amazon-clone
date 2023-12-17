@@ -1,7 +1,7 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/productdetails.dart';
-import 'package:amazonclone/services/home_services.dart';
+import 'package:amazonclone/model/Product.dart';
+import 'package:amazonclone/pages/ProductPage.dart';
+import 'package:amazonclone/services/HomeService.dart';
 import 'package:flutter/material.dart';
 
 class DealOfDay extends StatefulWidget {
@@ -14,14 +14,13 @@ class DealOfDay extends StatefulWidget {
 class _DealOfDayState extends State<DealOfDay> {
   Product? product;
   void bringDealOfDay() async {
-    home_back_services serv = home_back_services();
+    HomeService serv = HomeService();
     product = await serv.fetchDealOfDay(context: context);
     setState(() {});
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     bringDealOfDay();
   }

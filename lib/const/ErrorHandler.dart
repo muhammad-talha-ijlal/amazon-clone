@@ -10,7 +10,6 @@ void HttpsError(
     required http.Response response,
     required BuildContext context,
     required VoidCallback onSucces // function
-
     }) {
   switch (response.statusCode) {
     case 200:

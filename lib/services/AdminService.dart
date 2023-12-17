@@ -7,15 +7,15 @@ import 'package:amazonclone/const/ErrorHandler.dart';
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/const/Snackbar.dart';
 import 'package:amazonclone/model/Order.dart';
-import 'package:amazonclone/model/product.dart';
+import 'package:amazonclone/model/Product.dart';
 import 'package:amazonclone/model/Sales.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class adminServices {
+class AdminService {
   void sellproduct(
       {required BuildContext context, // to show errors
       required String name,
@@ -24,12 +24,12 @@ class adminServices {
       required double quantity,
       required String category,
       required List<File> images}) async {
-    final _firebaseStorage = FirebaseStorage.instance;
+    final firebaseStorage = FirebaseStorage.instance;
     List<String> imageUrl = [];
     for (var i = 0; i < images.length; i++) {
       File file = File(images[i].path);
       String imageName = 'image_$i';
-      TaskSnapshot uploadTask = await _firebaseStorage
+      TaskSnapshot uploadTask = await firebaseStorage
           .ref()
           .child('images/$name/$imageName')
           .putFile(file);

@@ -1,21 +1,21 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/product_details_services.dart';
+import 'package:amazonclone/model/Product.dart';
 import 'package:amazonclone/widgets/RatingApp.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/ProductService.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class adminProductShow extends StatefulWidget {
-  const adminProductShow({super.key, required this.product});
+class AdminProductScreen extends StatefulWidget {
+  const AdminProductScreen({super.key, required this.product});
   final Product product;
 
   @override
-  State<adminProductShow> createState() => _adminProductShowState();
+  State<AdminProductScreen> createState() => _adminProductShowState();
 }
 
-class _adminProductShowState extends State<adminProductShow> {
+class _adminProductShowState extends State<AdminProductScreen> {
   // avg rating for the show at top
   //  my rating to show the at bottom
   double avgRating = 0;
@@ -42,7 +42,7 @@ class _adminProductShowState extends State<adminProductShow> {
   int curr_page = 0;
 
   void addTocart() {
-    ProductDetailsServices pred = ProductDetailsServices();
+    ProductService pred = ProductService();
     pred.addCart(context: context, product: widget.product);
   }
 

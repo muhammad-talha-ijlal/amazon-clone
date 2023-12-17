@@ -1,8 +1,9 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/Order.dart';
-import 'package:amazonclone/pages/orderdetails.dart';
+import 'package:amazonclone/pages/OrderDetail.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class OrderProduct extends StatefulWidget {
   OrderProduct(
       {super.key,
@@ -72,7 +73,7 @@ class _OrderProductState extends State<OrderProduct> {
                       top: BorderSide(color: Colors.black12, width: 1.5))),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, orderDetails.routeName,
+                  Navigator.pushNamed(context, OrderDetails.routeName,
                       arguments: widget.order);
                 },
                 child: Padding(

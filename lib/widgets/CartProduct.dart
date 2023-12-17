@@ -1,7 +1,7 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/product_details_services.dart';
+import 'package:amazonclone/model/Product.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/ProductService.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,13 +15,13 @@ class CartProduct extends StatefulWidget {
 }
 
 class _CartProductState extends State<CartProduct> {
-  final ProductDetailsServices serv = ProductDetailsServices();
+  final ProductService serv = ProductService();
   void increaseQuantity(Product product) {
     serv.addCart(context: context, product: product);
   }
 
   void decreaseQuantity(Product product) {
-    serv.removeFromProduct(context: context, product: product);
+    serv.removeFromCart(context: context, product: product);
   }
 
   @override

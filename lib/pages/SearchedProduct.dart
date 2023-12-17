@@ -1,10 +1,10 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/addressScreen.dart';
-import 'package:amazonclone/pages/productdetails.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/home_services.dart';
+import 'package:amazonclone/model/Product.dart';
 import 'package:amazonclone/widgets/SeacrhResultProduct.dart';
+import 'package:amazonclone/pages/Address.dart';
+import 'package:amazonclone/pages/ProductPage.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/HomeService.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,13 +18,13 @@ class SearchedScreen extends StatefulWidget {
 }
 
 class _SearchedScreenState extends State<SearchedScreen> {
-  late List<Product> product_list;
+  late List<Product> productList;
   bool isLoading = true;
 
 // function to fetch the searched products
   fetchedProdcuts() async {
-    home_back_services sev = home_back_services();
-    product_list = await sev.fetchSearchProducts(
+    HomeService sev = HomeService();
+    productList = await sev.fetchSearchProducts(
         context: context, query: widget.searchquery);
 
     isLoading = false;
@@ -33,8 +33,8 @@ class _SearchedScreenState extends State<SearchedScreen> {
   }
 
   void search_again(String search) async {
-    home_back_services sev = home_back_services();
-    product_list =
+    HomeService sev = HomeService();
+    productList =
         await sev.fetchSearchProducts(context: context, query: search);
 
     isLoading = false;
@@ -196,7 +196,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
                         ),
                       ),
                     )
-                  : product_list.isEmpty
+                  : productList.isEmpty
                       ? Opacity(
                           opacity: 0.4,
                           child: Container(
@@ -213,17 +213,17 @@ class _SearchedScreenState extends State<SearchedScreen> {
                       : ListView.builder(
                           physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: product_list.length,
+                          itemCount: productList.length,
                           scrollDirection: Axis.vertical,
                           itemBuilder: (context, index) {
                             return GestureDetector(
                               onTap: () {
                                 Navigator.pushNamed(
                                     context, ProductDetailScreen.routeName,
-                                    arguments: product_list[index]);
+                                    arguments: productList[index]);
                               },
                               child: SeacrhResultProduct(
-                                  product: product_list[index]),
+                                  product: productList[index]),
                             );
                           }),
             ),
@@ -239,7 +239,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
     final user = Provider.of<UserProvider>(context).user;
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, addressForm.routeName, arguments: false);
+        Navigator.pushNamed(context, AddressScreen.routeName, arguments: false);
       },
       child: Container(
         height: 40,

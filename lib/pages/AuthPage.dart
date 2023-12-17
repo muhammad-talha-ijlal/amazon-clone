@@ -1,7 +1,7 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/services/services_auth.dart';
 import 'package:amazonclone/widgets/CustomButton.dart';
 import 'package:amazonclone/widgets/CustomField.dart';
+import 'package:amazonclone/services/AuthService.dart';
 import 'package:flutter/material.dart';
 
 enum Auth { signin, signup }
@@ -19,7 +19,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Auth _auth = Auth.signup;
   final _signUpFormkey = GlobalKey<FormState>();
   final _signInFormkey = GlobalKey<FormState>();
-  final auth_service auth = auth_service();
+  final AuthService auth = AuthService();
 
   final TextEditingController email = TextEditingController();
   final TextEditingController username = TextEditingController();

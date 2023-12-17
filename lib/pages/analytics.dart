@@ -1,18 +1,17 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/Sales.dart';
-import 'package:amazonclone/services/admin_services.dart';
-// import 'package:amazonclone/widgets/charts.dart';
+import 'package:amazonclone/services/AdminService.dart';
 import 'package:flutter/material.dart';
 
-class analytics extends StatefulWidget {
-  const analytics({super.key});
+class Analytics extends StatefulWidget {
+  const Analytics({super.key});
 
   @override
-  State<analytics> createState() => _analyticsState();
+  State<Analytics> createState() => _analyticsState();
 }
 
-class _analyticsState extends State<analytics> {
-  adminServices adm = adminServices();
+class _analyticsState extends State<Analytics> {
+  AdminService adm = AdminService();
   List<Sales> earning = [];
   double? totalEarnings;
   bool isLoading = true;

@@ -1,9 +1,9 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/main.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/add_product_Screen.dart';
-import 'package:amazonclone/pages/admin_product.dart';
-import 'package:amazonclone/services/admin_services.dart';
+import 'package:amazonclone/model/Product.dart';
+import 'package:amazonclone/pages/AddProduct.dart';
+import 'package:amazonclone/pages/AdminProduct.dart';
+import 'package:amazonclone/services/AdminService.dart';
 import 'package:flutter/material.dart';
 
 class AdminScreen extends StatefulWidget {
@@ -14,15 +14,15 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
-  final adminServices serv = adminServices();
+  final AdminService serv = AdminService();
 
 // other method to to tackle with the future builder
-  List<Product> product_list = [];
+  List<Product> productList = [];
 
   bool isLoading = true;
 
   void getAllProducts() async {
-    product_list = await serv.fetchAllproduct(context);
+    productList = await serv.fetchAllproduct(context);
     isLoading = false;
 
     setState(() {});
@@ -30,7 +30,6 @@ class _AdminScreenState extends State<AdminScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getAllProducts();
   }
@@ -77,8 +76,10 @@ class _AdminScreenState extends State<AdminScreen> {
                       GestureDetector(
                         onTap: () async {
                           await serv.turnUser(context: context);
-                          Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) => MyApp()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MyApp()));
                         },
                         child: Container(
                           padding: const EdgeInsets.all(8),
@@ -107,7 +108,7 @@ class _AdminScreenState extends State<AdminScreen> {
                       ),
                     ),
                   )
-                : product_list.isEmpty
+                : productList.isEmpty
                     ? Opacity(
                         opacity: 0.4,
                         child: Container(
@@ -125,7 +126,7 @@ class _AdminScreenState extends State<AdminScreen> {
                         physics:
                             NeverScrollableScrollPhysics(), // otherwise it will not scroll
                         scrollDirection: Axis.vertical,
-                        itemCount: product_list.length,
+                        itemCount: productList.length,
                         shrinkWrap: true,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
@@ -133,7 +134,7 @@ class _AdminScreenState extends State<AdminScreen> {
                           crossAxisCount: 2, mainAxisExtent: 320,
                         ),
                         itemBuilder: (context, index) {
-                          Product product = product_list[index];
+                          Product product = productList[index];
                           return Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 5, vertical: 8),
@@ -214,14 +215,14 @@ class _AdminScreenState extends State<AdminScreen> {
                                       ),
                                       GestureDetector(
                                         onTap: () async {
-                                          adminServices adm = adminServices();
+                                          AdminService adm = AdminService();
                                           bool check = await adm.deleteProduct(
                                               context: context,
                                               product: product,
                                               onSuccess: () {});
 
                                           if (check) {
-                                            product_list.removeAt(index);
+                                            productList.removeAt(index);
                                             setState(() {});
                                           }
                                         },
@@ -253,7 +254,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      adminProductShow(
+                                                      AdminProductScreen(
                                                           product: product)));
                                         },
                                         child: Padding(
@@ -279,7 +280,7 @@ class _AdminScreenState extends State<AdminScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, add_product_screen.routeName);
+          Navigator.pushNamed(context, AddProductScreen.routeName);
         },
         elevation: 0,
         tooltip: 'Add a product', // gives a message on long tap

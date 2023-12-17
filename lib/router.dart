@@ -1,13 +1,13 @@
 import 'package:amazonclone/model/Order.dart';
-import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/add_product_Screen.dart';
-import 'package:amazonclone/pages/addressScreen.dart';
-import 'package:amazonclone/pages/auth_screen.dart';
-import 'package:amazonclone/pages/category_deals.dart';
-import 'package:amazonclone/pages/home.dart';
-import 'package:amazonclone/pages/orderdetails.dart';
-import 'package:amazonclone/pages/productdetails.dart';
-import 'package:amazonclone/pages/searched_product.dart';
+import 'package:amazonclone/model/Product.dart';
+import 'package:amazonclone/pages/AddProduct.dart';
+import 'package:amazonclone/pages/Address.dart';
+import 'package:amazonclone/pages/AuthPage.dart';
+import 'package:amazonclone/pages/Category.dart';
+import 'package:amazonclone/pages/Home.dart';
+import 'package:amazonclone/pages/OrderDetail.dart';
+import 'package:amazonclone/pages/ProductPage.dart';
+import 'package:amazonclone/pages/SearchedProduct.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings rs) {
@@ -16,12 +16,12 @@ Route<dynamic> generateRoute(RouteSettings rs) {
       return MaterialPageRoute(
           settings: rs, builder: (_) => const AuthScreen());
 
-    case home.routeName:
-      return MaterialPageRoute(settings: rs, builder: (_) => const home());
+    case Home.routeName:
+      return MaterialPageRoute(settings: rs, builder: (_) => const Home());
 
-    case add_product_screen.routeName:
+    case AddProductScreen.routeName:
       return MaterialPageRoute(
-          settings: rs, builder: (_) => const add_product_screen());
+          settings: rs, builder: (_) => const AddProductScreen());
 
     case CategoryScreen.routeName:
       var category = rs.arguments
@@ -41,17 +41,17 @@ Route<dynamic> generateRoute(RouteSettings rs) {
       return MaterialPageRoute(
           settings: rs, builder: (_) => ProductDetailScreen(product: product));
 
-    case addressForm.routeName:
+    case AddressScreen.routeName:
       var ispay = rs.arguments as bool;
       return MaterialPageRoute(
           settings: rs,
-          builder: (_) => addressForm(
+          builder: (_) => AddressScreen(
                 isPay: ispay,
               ));
-    case orderDetails.routeName:
+    case OrderDetails.routeName:
       var order = rs.arguments as Order;
       return MaterialPageRoute(
-          settings: rs, builder: (_) => orderDetails(order: order));
+          settings: rs, builder: (_) => OrderDetails(order: order));
     default:
       return MaterialPageRoute(
           settings: rs,

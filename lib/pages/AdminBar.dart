@@ -1,28 +1,24 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/pages/admin_order_details.dart';
-import 'package:amazonclone/pages/admin_screen.dart';
-import 'package:amazonclone/pages/analytics.dart';
+import 'package:amazonclone/pages/AdminOrderDetails.dart';
+import 'package:amazonclone/pages/Admin.dart';
+import 'package:amazonclone/pages/Analytics.dart';
 import 'package:flutter/material.dart';
 // import 'package:badges/badges.dart' as badges;
 
-class bottom_admin_bar extends StatefulWidget {
-  const bottom_admin_bar({super.key});
+class AdminBar extends StatefulWidget {
+  const AdminBar({super.key});
 
   @override
-  State<bottom_admin_bar> createState() => _bottom_admin_barState();
+  State<AdminBar> createState() => _bottom_admin_barState();
 }
 
-class _bottom_admin_barState extends State<bottom_admin_bar> {
+class _bottom_admin_barState extends State<AdminBar> {
   int _page = 0;
   double bottom_width = 42;
   double selectedborder = 3;
   double font_size = 12;
 
-  List<Widget> pages = [
-    const AdminScreen(),
-    analytics(),
-    ordered_admin_screen()
-  ];
+  List<Widget> pages = [const AdminScreen(), Analytics(), AdminOrderDetails()];
 
   void updatepage(int page) {
     setState(() {

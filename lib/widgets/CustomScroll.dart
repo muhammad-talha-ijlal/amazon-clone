@@ -1,6 +1,6 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 
-import 'package:amazonclone/pages/category_deals.dart';
+import 'package:amazonclone/pages/Category.dart';
 
 import 'package:amazonclone/widgets/CarouselImages.dart';
 import 'package:amazonclone/widgets/DealOfDay.dart';

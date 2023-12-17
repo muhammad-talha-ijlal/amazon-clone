@@ -1,26 +1,26 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/const/Snackbar.dart';
 import 'package:amazonclone/model/Order.dart';
-import 'package:amazonclone/pages/searched_product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/admin_services.dart';
 import 'package:amazonclone/widgets/CustomButton.dart';
 import 'package:amazonclone/widgets/OrderedProducts.dart';
+import 'package:amazonclone/pages/SearchedProduct.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/AdminService.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-class orderDetails extends StatefulWidget {
+class OrderDetails extends StatefulWidget {
   static const String routeName = '/order-details';
 
-  const orderDetails({super.key, required this.order});
+  const OrderDetails({super.key, required this.order});
   final Order order;
 
   @override
-  State<orderDetails> createState() => _orderDetailsState();
+  State<OrderDetails> createState() => _orderDetailsState();
 }
 
-class _orderDetailsState extends State<orderDetails> {
+class _orderDetailsState extends State<OrderDetails> {
   int curr_step = 0;
   void navigateTosearchScreen(String query) {
     Navigator.pushNamed(context, SearchedScreen.routeName, arguments: query);
@@ -316,7 +316,7 @@ class _orderDetailsState extends State<orderDetails> {
                                   text: 'Done',
                                   onTap: () async {
                                     // update order
-                                    adminServices serv = adminServices();
+                                    AdminService serv = AdminService();
                                     bool check = await serv.updateOrder(
                                         context: context,
                                         order: widget.order,

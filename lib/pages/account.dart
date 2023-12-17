@@ -1,14 +1,13 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/main.dart';
 import 'package:amazonclone/model/Order.dart';
-import 'package:amazonclone/pages/auth_screen.dart';
-import 'package:amazonclone/pages/myorder.dart';
-import 'package:amazonclone/pages/searched_product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/home_services.dart';
-import 'package:amazonclone/services/services_auth.dart';
 import 'package:amazonclone/widgets/OrderProduct.dart';
-// import 'package:amazonclone/widgets/searched_product.dart';
+import 'package:amazonclone/pages/AuthPage.dart';
+import 'package:amazonclone/pages/OrderPage.dart';
+import 'package:amazonclone/pages/SearchedProduct.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/HomeService.dart';
+import 'package:amazonclone/services/AuthService.dart';
 import 'package:amazonclone/widgets/TopButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,8 +23,8 @@ class AccountScreen extends StatefulWidget {
 // order contains data of a particular checkout where prouducts have multiple elements as similar for quantity but in order horizontal direction we only show first name of the child
 
 class _AccountScreenState extends State<AccountScreen> {
-  home_back_services hm = home_back_services();
-  auth_service sv = auth_service();
+  HomeService hm = HomeService();
+  AuthService sv = AuthService();
   // temporary list
   List<Order> orderlist = [];
 
@@ -137,7 +136,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => orderAll()));
+                                  builder: (context) => OrderScreen()));
                         }),
                     TopButton(
                         name: "Turn Seller",
@@ -188,7 +187,7 @@ class _AccountScreenState extends State<AccountScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => orderAll()));
+                                builder: (context) => OrderScreen()));
                       },
                       child: Container(
                         padding: const EdgeInsets.only(right: 15),

@@ -1,5 +1,5 @@
 import 'package:amazonclone/const/GlobalVariables.dart';
-import 'package:amazonclone/model/product.dart';
+import 'package:amazonclone/model/Product.dart';
 import 'package:amazonclone/widgets/RatingApp.dart';
 import 'package:flutter/material.dart';
 

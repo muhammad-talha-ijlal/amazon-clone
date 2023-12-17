@@ -6,14 +6,14 @@ import 'package:amazonclone/const/ErrorHandler.dart';
 import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/const/Snackbar.dart';
 import 'package:amazonclone/model/User.dart';
-import 'package:amazonclone/pages/home.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/pages/Home.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class auth_service {
+class AuthService {
   // sign up user
   void signupuser(
       {
@@ -39,7 +39,6 @@ class auth_service {
           .post(Uri.parse('$uri/api/signup'), body: user.toJson(), headers: {
         'Content-Type': 'application/json; charset=UTF-8',
       });
-      print(res.statusCode);
 
       // snack bar and https error
       HttpsError(
@@ -66,7 +65,6 @@ class auth_service {
           headers: {
             'Content-Type': 'application/json; charset=UTF-8',
           });
-      print(res.statusCode);
 
       // snack bar and https error
       HttpsError(
@@ -81,7 +79,7 @@ class auth_service {
             prefs.setString("x-auth-mail", jsonDecode(res.body)['email']);
             prefs.setString("x-auth-pass", jsonDecode(res.body)['password']);
             Navigator.pushNamedAndRemoveUntil(
-                context, home.routeName, (route) => false);
+                context, Home.routeName, (route) => false);
           });
     } catch (e) {
       Snackbar(context, e.toString());
@@ -93,8 +91,6 @@ class auth_service {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? email = prefs.getString("x-auth-mail");
       String? pass = prefs.getString("x-auth-pass");
-      print(email);
-      print(pass);
 
       if (email != null && pass != null) {
         http.Response res = await http.post(Uri.parse('$uri/api/userdetails'),
@@ -158,7 +154,7 @@ class auth_service {
                 .copyWith(address: jsonDecode(res.body)['address']);
 
             // userProvider.user gives an instance of user stored in provider
-            userProvider.setUserFrommodel(temp);
+            userProvider.setUserFromModel(temp);
 
             Snackbar(context, "Address Updated");
           });
@@ -195,8 +191,8 @@ class auth_service {
             var temp = userProvider.user.copyWith(cart: []);
 
             // userProvider.user gives an instance of user stored in provider
-            userProvider.setUserFrommodel(temp);
             Snackbar(context, "Your Order is Placed");
+            userProvider.setUserFromModel(temp);
             Future.delayed(const Duration(seconds: 4), () {
               Navigator.pop(context);
             });
