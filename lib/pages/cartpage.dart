@@ -158,7 +158,7 @@ class _cartpageState extends State<cartpage> {
                       height: 450,
                       child: Center(
                           child: Image.asset(
-                        "images/amazon_in.png",
+                        "images/amazon.png",
                         width: 270,
                         color: Colors.black,
                         fit: BoxFit.fitWidth,

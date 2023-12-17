@@ -69,7 +69,7 @@ class _AdminScreenState extends State<AdminScreen> {
                       Container(
                         padding: const EdgeInsets.only(top: 6),
                         child: Image.asset(
-                          "images/amazon_in.png",
+                          "images/amazon.png",
                           width: 120,
                           height: 45,
                           color: Colors.black,
@@ -115,7 +115,7 @@ class _AdminScreenState extends State<AdminScreen> {
                           height: 650,
                           child: Center(
                               child: Image.asset(
-                            "images/amazon_in.png",
+                            "images/amazon.png",
                             width: 270,
                             color: Colors.black,
                             fit: BoxFit.fitWidth,

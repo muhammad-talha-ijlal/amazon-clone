@@ -5,13 +5,16 @@ import 'package:amazonclone/pages/home.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/router.dart';
 import 'package:amazonclone/services/services_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 //  in this project we created a const folder having const data like colors
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(
     providers: [ChangeNotifierProvider(create: (context) => UserProvider())],
     child: MaterialApp(
@@ -68,7 +71,7 @@ class _MyAppState extends State<MyApp> {
         ? Scaffold(
             body: Center(
                 child: Image.asset(
-            "images/amazon_in.png",
+            "images/amazon.png",
             width: 270,
             color: Colors.black,
             fit: BoxFit.fitWidth,
@@ -81,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                     ? Scaffold(
                         body: Center(
                             child: Image.asset(
-                          "images/amazon_in.png",
+                          "images/amazon.png",
                           width: 270,
                           color: Colors.black,
                           fit: BoxFit.fitWidth,

@@ -64,7 +64,7 @@ class _analyticsState extends State<analytics> {
                       Container(
                         padding: const EdgeInsets.only(top: 6),
                         child: Image.asset(
-                          "images/amazon_in.png",
+                          "images/amazon.png",
                           width: 120,
                           height: 45,
                           color: Colors.black,

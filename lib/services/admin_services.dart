@@ -14,6 +14,7 @@ import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class adminServices {
   void sellproduct(
@@ -24,17 +25,30 @@ class adminServices {
       required double quantity,
       required String category,
       required List<File> images}) async {
+    final _firebaseStorage = FirebaseStorage.instance;
+    List<String> imageUrl = [];
+    for (var i = 0; i < images.length; i++) {
+      File file = File(images[i].path);
+      String imageName = 'image_$i';
+      TaskSnapshot uploadTask = await _firebaseStorage
+          .ref()
+          .child('images/$name/$imageName')
+          .putFile(file);
+      String downloadUrl = await uploadTask.ref.getDownloadURL();
+      imageUrl.add(downloadUrl);
+    }
+
     try {
-      final cloudinary = CloudinaryPublic("dhbyfjouq",
-          "nc3gdx5y"); // it creates a cloud link to store iamges at cloudinary
-      List<String> imageUrl = [];
-      for (var i = 0; i < images.length; i++) {
-        CloudinaryResponse res = await cloudinary.uploadFile(
-            CloudinaryFile.fromFile(images[i].path,
-                folder:
-                    name)); // uploading file in the folder of the product name for amnagement purspose
-        imageUrl.add(res.secureUrl); // link to upload at mongo db
-      }
+      // final cloudinary = CloudinaryPublic("dhbyfjouq",
+      //     "nc3gdx5y"); // it creates a cloud link to store iamges at cloudinary
+      // List<String> imageUrl = [];
+      // for (var i = 0; i < images.length; i++) {
+      //   CloudinaryResponse res = await cloudinary.uploadFile(
+      //       CloudinaryFile.fromFile(images[i].path,
+      //           folder:
+      //               name)); // uploading file in the folder of the product name for amnagement purspose
+      //   imageUrl.add(res.secureUrl); // link to upload at mongo db
+      // }
 
 // a product object is created
       Product product = Product(
@@ -62,7 +76,6 @@ class adminServices {
       // post api server
     } catch (e) {
       Navigator.pop(context);
-
       snackbar(context, e.toString());
     }
   }

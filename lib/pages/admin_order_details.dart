@@ -62,7 +62,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                       Container(
                         padding: const EdgeInsets.only(top: 6),
                         child: Image.asset(
-                          "images/amazon_in.png",
+                          "images/amazon.png",
                           width: 120,
                           height: 45,
                           color: Colors.black,
@@ -101,7 +101,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                           height: 450,
                           child: Center(
                               child: Image.asset(
-                            "images/amazon_in.png",
+                            "images/amazon.png",
                             width: 270,
                             color: Colors.black,
                             fit: BoxFit.fitWidth,

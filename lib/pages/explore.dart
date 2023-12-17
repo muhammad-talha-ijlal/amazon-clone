@@ -68,7 +68,7 @@ class _exploreState extends State<explore> {
                             height: 650,
                             child: Center(
                                 child: Image.asset(
-                              "images/amazon_in.png",
+                              "images/amazon.png",
                               width: 270,
                               color: Colors.black,
                               fit: BoxFit.fitWidth,

@@ -23,7 +23,6 @@ class _adminProductShowState extends State<adminProductShow> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     double totalrating = 0;
 
@@ -92,7 +91,7 @@ class _adminProductShowState extends State<adminProductShow> {
                       Container(
                         padding: const EdgeInsets.only(top: 8, left: 34),
                         child: Image.asset(
-                          "images/amazon_in.png",
+                          "images/amazon.png",
                           width: 120,
                           height: 45,
                           color: Colors.black,
