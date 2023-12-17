@@ -1,5 +1,5 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/pages/orderdetails.dart';
 import 'package:flutter/material.dart';
 
@@ -82,7 +82,7 @@ class _OrderProductState extends State<OrderProduct> {
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
-                        color: GlobalVariables.selectedNavBarColor),
+                        color: GlobalVariables.SelectedNavBarColor),
                   ),
                 ),
               ),

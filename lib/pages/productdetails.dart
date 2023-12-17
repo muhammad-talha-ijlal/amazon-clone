@@ -1,10 +1,10 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/product_details_services.dart';
-import 'package:amazonclone/widgets/button.dart';
-import 'package:amazonclone/widgets/stars.dart';
+import 'package:amazonclone/widgets/CustomButton.dart';
+import 'package:amazonclone/widgets/RatingApp.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -66,7 +66,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             automaticallyImplyLeading: false,
             flexibleSpace: Container(
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
             ),
           ),
         ),
@@ -94,7 +94,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -149,7 +149,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   Radius.circular(7),
                                 ),
                                 borderSide: BorderSide(
-                                  color: GlobalVariables.selectedNavBarColor,
+                                  color: GlobalVariables.SelectedNavBarColor,
                                   width: 1,
                                 ),
                               ),
@@ -203,7 +203,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: rating_app(rating: avgRating),
+                        child: RatingApp(rating: avgRating),
                       ),
                     ],
                   ),
@@ -215,8 +215,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
-                          color: GlobalVariables.selectedNavBarColor
-                              .withOpacity(0.8)),
+                          color:
+                              GlobalVariables.SelectedNavBarColor.withOpacity(
+                                  0.8)),
                     ),
                   ),
                   Container(
@@ -253,9 +254,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 child: CircleAvatar(
                                   radius: 5,
                                   backgroundColor: curr_page != index
-                                      ? GlobalVariables.unselectedNavBarColor
+                                      ? GlobalVariables.UnselectedNavBarColor
                                           .withOpacity(0.5)
-                                      : GlobalVariables.selectedNavBarColor,
+                                      : GlobalVariables.SelectedNavBarColor,
                                 ),
                               )),
                     ),
@@ -307,8 +308,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       widget.product.description,
                       style: TextStyle(
                           fontSize: 14,
-                          color: GlobalVariables.unselectedNavBarColor
-                              .withOpacity(0.8),
+                          color:
+                              GlobalVariables.UnselectedNavBarColor.withOpacity(
+                                  0.8),
                           fontWeight: FontWeight.w500),
                     ),
                   ),
@@ -319,10 +321,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10),
-                    child: custom_btn(
+                    child: CustomButton(
                         text: 'Buy Now',
                         onTap: () {},
-                        color: GlobalVariables.buttonColor),
+                        color: GlobalVariables.ButtonColor),
                   ),
                   const SizedBox(
                     height: 10,
@@ -330,7 +332,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10),
-                    child: custom_btn(
+                    child: CustomButton(
                         text: 'Add to Cart',
                         onTap: () {
                           addTocart();
@@ -360,7 +362,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               .copyWith(bottom: 15),
                       itemBuilder: (context, _) => const Icon(
                             Icons.star,
-                            color: GlobalVariables.secondaryColor,
+                            color: GlobalVariables.SecondaryColor,
                           ),
                       onRatingUpdate: (rating) {
                         prd_serv.rateProduct(

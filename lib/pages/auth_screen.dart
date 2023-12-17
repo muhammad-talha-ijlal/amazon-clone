@@ -1,7 +1,7 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/services/services_auth.dart';
-import 'package:amazonclone/widgets/button.dart';
-import 'package:amazonclone/widgets/field.dart';
+import 'package:amazonclone/widgets/CustomButton.dart';
+import 'package:amazonclone/widgets/CustomField.dart';
 import 'package:flutter/material.dart';
 
 enum Auth { signin, signup }
@@ -48,7 +48,7 @@ class _AuthScreenState extends State<AuthScreen> {
     }
 
     return Scaffold(
-      backgroundColor: GlobalVariables.greyBackgroundCOlor,
+      backgroundColor: GlobalVariables.GreyBackgroundColor,
       body: SafeArea(
           child: Container(
         padding: const EdgeInsets.all(8),
@@ -69,14 +69,14 @@ class _AuthScreenState extends State<AuthScreen> {
               ListTile(
                 tileColor: _auth == Auth.signup
                     ? GlobalVariables.backgroundColor
-                    : GlobalVariables.greyBackgroundCOlor,
+                    : GlobalVariables.GreyBackgroundColor,
                 title: const Text(
                   "Create Account",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 leading: Radio(
                   groupValue: _auth,
-                  activeColor: GlobalVariables.secondaryColor,
+                  activeColor: GlobalVariables.SecondaryColor,
                   value: Auth.signup,
                   onChanged: (Auth? val) {
                     setState(() {
@@ -94,20 +94,20 @@ class _AuthScreenState extends State<AuthScreen> {
                           key: _signUpFormkey,
                           child: Column(
                             children: [
-                              custome_field(
+                              CustomField(
                                 controller: email,
                                 hint: "Email",
                               ),
-                              custome_field(
+                              CustomField(
                                   controller: username, hint: "Username"),
-                              custome_field(
+                              CustomField(
                                 controller: pass,
                                 hint: "Password",
                               ),
                               const SizedBox(
                                 height: 10,
                               ),
-                              custom_btn(
+                              CustomButton(
                                   text: "Sign up",
                                   onTap: () {
                                     // here we check whole form is valid or not if yes sign up user function get runs
@@ -116,7 +116,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                       signupuser();
                                     }
                                   },
-                                  color: GlobalVariables.buttonColor)
+                                  color: GlobalVariables.ButtonColor)
                             ],
                           )),
                     )
@@ -124,14 +124,14 @@ class _AuthScreenState extends State<AuthScreen> {
               ListTile(
                 tileColor: _auth == Auth.signin
                     ? GlobalVariables.backgroundColor
-                    : GlobalVariables.greyBackgroundCOlor,
+                    : GlobalVariables.GreyBackgroundColor,
                 title: const Text(
                   "Sign in",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 leading: Radio(
                   groupValue: _auth, // these are the possible set of the value
-                  activeColor: GlobalVariables.secondaryColor,
+                  activeColor: GlobalVariables.SecondaryColor,
                   value: Auth
                       .signin, // particular button get selectd on this value
                   onChanged: (Auth? val) {
@@ -150,18 +150,18 @@ class _AuthScreenState extends State<AuthScreen> {
                           key: _signInFormkey,
                           child: Column(
                             children: [
-                              custome_field(
+                              CustomField(
                                 controller: email,
                                 hint: "Email",
                               ),
-                              custome_field(
+                              CustomField(
                                 controller: pass,
                                 hint: "Password",
                               ),
                               const SizedBox(
                                 height: 10,
                               ),
-                              custom_btn(
+                              CustomButton(
                                   text: "Sign In",
                                   onTap: () {
                                     if (_signInFormkey.currentState!
@@ -169,7 +169,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                       signinuser();
                                     }
                                   },
-                                  color: GlobalVariables.buttonColor)
+                                  color: GlobalVariables.ButtonColor)
                             ],
                           )),
                     )

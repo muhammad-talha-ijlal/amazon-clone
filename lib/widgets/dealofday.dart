@@ -1,4 +1,4 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/productdetails.dart';
 import 'package:amazonclone/services/home_services.dart';
@@ -33,7 +33,7 @@ class _DealOfDayState extends State<DealOfDay> {
             height: 400,
             child: Center(
                 child: CircularProgressIndicator(
-              color: GlobalVariables.selectedNavBarColor,
+              color: GlobalVariables.SelectedNavBarColor,
             )),
           )
         : product!.name.isEmpty
@@ -67,8 +67,9 @@ class _DealOfDayState extends State<DealOfDay> {
                       style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.w700,
-                          color: GlobalVariables.selectedNavBarColor
-                              .withOpacity(0.8)),
+                          color:
+                              GlobalVariables.SelectedNavBarColor.withOpacity(
+                                  0.8)),
                     ),
                   ),
                   Container(

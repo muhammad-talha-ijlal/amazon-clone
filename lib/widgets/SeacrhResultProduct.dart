@@ -1,17 +1,17 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/widgets/stars.dart';
+import 'package:amazonclone/widgets/RatingApp.dart';
 import 'package:flutter/material.dart';
 
-class search_result_prodcut extends StatefulWidget {
-  const search_result_prodcut({super.key, required this.product});
+class SeacrhResultProduct extends StatefulWidget {
+  const SeacrhResultProduct({super.key, required this.product});
   final Product product;
 
   @override
-  State<search_result_prodcut> createState() => _search_result_prodcutState();
+  State<SeacrhResultProduct> createState() => _SeacrhResultProductState();
 }
 
-class _search_result_prodcutState extends State<search_result_prodcut> {
+class _SeacrhResultProductState extends State<SeacrhResultProduct> {
   @override
   Widget build(BuildContext context) {
     double totalrating = 0;
@@ -65,14 +65,14 @@ class _search_result_prodcutState extends State<search_result_prodcut> {
                     ),
                     Container(
                         padding: const EdgeInsets.only(bottom: 0, left: 10),
-                        child: rating_app(rating: avgRating)),
+                        child: RatingApp(rating: avgRating)),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 0, left: 10),
                       child: Text(
                         "\$${widget.product.price}",
                         style: TextStyle(
                             fontSize: 18,
-                            color: GlobalVariables.selectedNavBarColor,
+                            color: GlobalVariables.SelectedNavBarColor,
                             fontWeight: FontWeight.w500),
                       ),
                     ),

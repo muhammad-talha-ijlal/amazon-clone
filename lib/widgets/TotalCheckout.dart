@@ -2,14 +2,14 @@ import 'package:amazonclone/providers/userproviders.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class total_checkout extends StatefulWidget {
-  const total_checkout({super.key});
+class TotalCheckout extends StatefulWidget {
+  const TotalCheckout({super.key});
 
   @override
-  State<total_checkout> createState() => _total_checkoutState();
+  State<TotalCheckout> createState() => _TotalCheckoutState();
 }
 
-class _total_checkoutState extends State<total_checkout> {
+class _TotalCheckoutState extends State<TotalCheckout> {
   @override
   Widget build(BuildContext context) {
     final user = context.watch<UserProvider>().user;

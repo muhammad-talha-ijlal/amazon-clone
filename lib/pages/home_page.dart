@@ -1,9 +1,9 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/pages/addressScreen.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 
-import 'package:amazonclone/widgets/scrollhome.dart';
+import 'package:amazonclone/widgets/CustomScroll.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +27,7 @@ class _home_actual_pageState extends State<home_actual_page> {
         child: AppBar(
           flexibleSpace: Container(
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -38,7 +38,7 @@ class _home_actual_pageState extends State<home_actual_page> {
             expandedHeight: 60, // Set the height of the search bar
             flexibleSpace: Container(
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
               child: Row(
                 children: [
                   Container(
@@ -89,7 +89,7 @@ class _home_actual_pageState extends State<home_actual_page> {
                               Radius.circular(7),
                             ),
                             borderSide: BorderSide(
-                              color: GlobalVariables.selectedNavBarColor,
+                              color: GlobalVariables.SelectedNavBarColor,
                               width: 1,
                             ),
                           ),
@@ -129,7 +129,7 @@ class _home_actual_pageState extends State<home_actual_page> {
           ),
           // scrollable part of the image
           const SliverToBoxAdapter(
-            child: customeScroll(),
+            child: CustomScroll(),
           ),
         ],
       ),

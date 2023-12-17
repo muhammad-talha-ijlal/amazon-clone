@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:amazonclone/const/snackbar.dart';
+import 'package:amazonclone/const/Snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-void httpsError(
+void HttpsError(
     {
     // api  return the status code and that json coded in form of response
     required http.Response response,
@@ -17,12 +17,12 @@ void httpsError(
       onSucces();
       break;
     case 400:
-      snackbar(context, jsonDecode(response.body)['msg']);
+      Snackbar(context, jsonDecode(response.body)['msg']);
       break;
     case 500:
-      snackbar(context, jsonDecode(response.body)['error']);
+      Snackbar(context, jsonDecode(response.body)['error']);
       break;
     default:
-      snackbar(context, jsonDecode(response.body));
+      Snackbar(context, jsonDecode(response.body));
   }
 }

@@ -1,20 +1,20 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/product_details_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class cart_product extends StatefulWidget {
-  cart_product({super.key, required this.index});
+class CartProduct extends StatefulWidget {
+  CartProduct({super.key, required this.index});
 
   final int index;
 
   @override
-  State<cart_product> createState() => _cart_productState();
+  State<CartProduct> createState() => _CartProductState();
 }
 
-class _cart_productState extends State<cart_product> {
+class _CartProductState extends State<CartProduct> {
   final ProductDetailsServices serv = ProductDetailsServices();
   void increaseQuantity(Product product) {
     serv.addCart(context: context, product: product);
@@ -142,7 +142,7 @@ class _cart_productState extends State<cart_product> {
                         "\$${product.price}",
                         style: TextStyle(
                             fontSize: 20,
-                            color: GlobalVariables.selectedNavBarColor,
+                            color: GlobalVariables.SelectedNavBarColor,
                             fontWeight: FontWeight.w500),
                       ),
                     ),

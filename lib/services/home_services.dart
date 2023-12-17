@@ -2,10 +2,10 @@
 
 import 'dart:convert';
 
-import 'package:amazonclone/const/error_handl.dart';
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/const/ErrorHandler.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class home_back_services {
           'Content-Type': 'application/json;charset=UTF-8'
         },
       );
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -37,7 +37,7 @@ class home_back_services {
             });
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
     return productList;
   }
@@ -66,7 +66,7 @@ class home_back_services {
         );
       }
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -78,7 +78,7 @@ class home_back_services {
             });
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
     return productList;
   }
@@ -104,7 +104,7 @@ class home_back_services {
         },
       );
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -123,7 +123,7 @@ class home_back_services {
             });
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
     return product;
   }
@@ -144,7 +144,7 @@ class home_back_services {
           },
           body: jsonEncode({"userId": userProvider.user.id}));
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -155,7 +155,7 @@ class home_back_services {
           });
     } catch (e) {
       print(e.toString());
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
     return productlist;
   }

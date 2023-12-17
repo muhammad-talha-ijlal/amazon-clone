@@ -1,11 +1,11 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
 import 'package:amazonclone/model/Address.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/DatabaseService.dart';
 import 'package:amazonclone/services/services_auth.dart';
-import 'package:amazonclone/widgets/button.dart';
-import 'package:amazonclone/widgets/field.dart';
+import 'package:amazonclone/widgets/CustomButton.dart';
+import 'package:amazonclone/widgets/CustomField.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -74,7 +74,7 @@ class _addressFormState extends State<addressForm> {
       authServ.orderProduct(
           context: context, address: addressToBeUsed, totalSum: totalSum);
     } else {
-      snackbar(context, "Please Enter Your Delivery Address");
+      Snackbar(context, "Please Enter Your Delivery Address");
     }
   }
 
@@ -109,7 +109,7 @@ class _addressFormState extends State<addressForm> {
           automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -133,7 +133,7 @@ class _addressFormState extends State<addressForm> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: const Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -207,23 +207,23 @@ class _addressFormState extends State<addressForm> {
                       key: address_key,
                       child: Column(
                         children: [
-                          custome_field(
+                          CustomField(
                             controller: flat,
                             hint: "Flat,House no,building",
                           ),
-                          custome_field(controller: area, hint: "Area, Street"),
-                          custome_field(
+                          CustomField(controller: area, hint: "Area, Street"),
+                          CustomField(
                             controller: pinode,
                             hint: "Pin Code",
                           ),
-                          custome_field(
+                          CustomField(
                             controller: city,
                             hint: "Town/City",
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                          custom_btn(
+                          CustomButton(
                               text: address.isEmpty
                                   ? "Set My Address"
                                   : "Confirm New Address",
@@ -242,16 +242,16 @@ class _addressFormState extends State<addressForm> {
                                       zipCode: pinode.text));
                                 }
                               },
-                              color: GlobalVariables.buttonColor),
+                              color: GlobalVariables.ButtonColor),
                           widget.isPay
                               ? Padding(
                                   padding: const EdgeInsets.only(top: 10),
-                                  child: custom_btn(
+                                  child: CustomButton(
                                       text: 'Proceed To Pay \$${sum}',
                                       onTap: () {
                                         payFunction(address, sum.toDouble());
                                       },
-                                      color: GlobalVariables.buttonColor),
+                                      color: GlobalVariables.ButtonColor),
                                 )
                               : Container(),
                         ],

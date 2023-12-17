@@ -1,4 +1,4 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/main.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/add_product_Screen.dart';
@@ -44,7 +44,7 @@ class _AdminScreenState extends State<AdminScreen> {
           flexibleSpace: Container(
             // flexible space is used to give gradient color
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -60,7 +60,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +103,7 @@ class _AdminScreenState extends State<AdminScreen> {
                     height: 180,
                     child: const Center(
                       child: CircularProgressIndicator(
-                        color: GlobalVariables.secondaryColor,
+                        color: GlobalVariables.SecondaryColor,
                       ),
                     ),
                   )
@@ -140,7 +140,7 @@ class _AdminScreenState extends State<AdminScreen> {
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: GlobalVariables.selectedNavBarColor
+                                      color: GlobalVariables.SelectedNavBarColor
                                           .withOpacity(0.3),
                                       width: 1.5),
                                   borderRadius: BorderRadius.circular(10),
@@ -181,7 +181,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                       style: TextStyle(
                                           fontSize: 18,
                                           color: GlobalVariables
-                                              .selectedNavBarColor,
+                                              .SelectedNavBarColor,
                                           fontWeight: FontWeight.w500),
                                     ),
                                   ),
@@ -230,9 +230,9 @@ class _AdminScreenState extends State<AdminScreen> {
                                               bottom: 5, right: 10),
                                           child: Icon(
                                             Icons.delete,
-                                            color: GlobalVariables
-                                                .secondaryColor
-                                                .withOpacity(0.91),
+                                            color:
+                                                GlobalVariables.SecondaryColor
+                                                    .withOpacity(0.91),
                                             size: 22,
                                           ),
                                         ),
@@ -265,7 +265,7 @@ class _AdminScreenState extends State<AdminScreen> {
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 18,
                                                 color: GlobalVariables
-                                                    .selectedNavBarColor),
+                                                    .SelectedNavBarColor),
                                           ),
                                         ),
                                       )),

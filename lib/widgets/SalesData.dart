@@ -1,5 +1,5 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/model/sales.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/model/Sales.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +46,7 @@ class _SalesDataState extends State<SalesData> {
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5)),
                     toY: double.parse(widget.sales[0].earning.toString()),
-                    color: GlobalVariables.selectedNavBarColor)
+                    color: GlobalVariables.SelectedNavBarColor)
               ]),
               BarChartGroupData(x: 2, barRods: [
                 BarChartRodData(
@@ -55,7 +55,7 @@ class _SalesDataState extends State<SalesData> {
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5)),
                     toY: double.parse(widget.sales[1].earning.toString()),
-                    color: GlobalVariables.selectedNavBarColor)
+                    color: GlobalVariables.SelectedNavBarColor)
               ]),
               BarChartGroupData(x: 3, barRods: [
                 BarChartRodData(
@@ -64,7 +64,7 @@ class _SalesDataState extends State<SalesData> {
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5)),
                     toY: double.parse(widget.sales[2].earning.toString()),
-                    color: GlobalVariables.selectedNavBarColor)
+                    color: GlobalVariables.SelectedNavBarColor)
               ]),
               BarChartGroupData(x: 4, barRods: [
                 BarChartRodData(
@@ -73,7 +73,7 @@ class _SalesDataState extends State<SalesData> {
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5)),
                     toY: double.parse(widget.sales[3].earning.toString()),
-                    color: GlobalVariables.selectedNavBarColor)
+                    color: GlobalVariables.SelectedNavBarColor)
               ]),
               BarChartGroupData(x: 5, barRods: [
                 BarChartRodData(
@@ -82,7 +82,7 @@ class _SalesDataState extends State<SalesData> {
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5)),
                     toY: double.parse(widget.sales[4].earning.toString()),
-                    color: GlobalVariables.selectedNavBarColor)
+                    color: GlobalVariables.SelectedNavBarColor)
               ]),
             ])));
   }

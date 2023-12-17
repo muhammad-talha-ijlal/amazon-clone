@@ -1,4 +1,4 @@
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/add_product_Screen.dart';
 import 'package:amazonclone/pages/addressScreen.dart';

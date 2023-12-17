@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class custome_field extends StatelessWidget {
-  const custome_field(
+class CustomField extends StatelessWidget {
+  const CustomField(
       // default max line get one
       {super.key,
       required this.controller,

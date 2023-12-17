@@ -1,10 +1,10 @@
 import 'dart:io';
 
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
 import 'package:amazonclone/services/admin_services.dart';
-import 'package:amazonclone/widgets/button.dart';
-import 'package:amazonclone/widgets/field.dart';
+import 'package:amazonclone/widgets/CustomButton.dart';
+import 'package:amazonclone/widgets/CustomField.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -89,7 +89,7 @@ class _add_product_screenState extends State<add_product_screen> {
       }
 
       if (img_sent.isEmpty) {
-        snackbar(context, "Product images must");
+        Snackbar(context, "Product images must");
       }
     }
 
@@ -100,7 +100,7 @@ class _add_product_screenState extends State<add_product_screen> {
           flexibleSpace: Container(
             // flexible space is used to give gradient color
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -121,7 +121,7 @@ class _add_product_screenState extends State<add_product_screen> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -149,7 +149,7 @@ class _add_product_screenState extends State<add_product_screen> {
                     height: MediaQuery.of(context).size.height,
                     child: Center(
                       child: CircularProgressIndicator(
-                        color: GlobalVariables.selectedNavBarColor,
+                        color: GlobalVariables.SelectedNavBarColor,
                       ),
                     ),
                   )
@@ -308,13 +308,13 @@ class _add_product_screenState extends State<add_product_screen> {
                           const SizedBox(
                             height: 30,
                           ),
-                          custome_field(
+                          CustomField(
                               controller: productNameControl,
                               hint: "Product Name"),
                           const SizedBox(
                             height: 10,
                           ),
-                          custome_field(
+                          CustomField(
                             controller: descrpControl,
                             hint: "Description",
                             maxlines: 7,
@@ -322,12 +322,11 @@ class _add_product_screenState extends State<add_product_screen> {
                           const SizedBox(
                             height: 10,
                           ),
-                          custome_field(
-                              controller: priceControl, hint: "Price"),
+                          CustomField(controller: priceControl, hint: "Price"),
                           const SizedBox(
                             height: 10,
                           ),
-                          custome_field(
+                          CustomField(
                               controller: quantityControl, hint: "Quantity"),
                           SizedBox(
                               width: double.infinity,
@@ -353,7 +352,7 @@ class _add_product_screenState extends State<add_product_screen> {
                           ),
                           selling
                               ? Container()
-                              : custom_btn(
+                              : CustomButton(
                                   text: 'Sell',
                                   onTap: () {
                                     sellProduct();

@@ -1,8 +1,8 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/productdetails.dart';
 import 'package:amazonclone/services/home_services.dart';
-import 'package:amazonclone/widgets/stars.dart';
+import 'package:amazonclone/widgets/RatingApp.dart';
 import 'package:flutter/material.dart';
 
 class CategoryScreen extends StatefulWidget {
@@ -43,7 +43,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
             flexibleSpace: Container(
               // flexible space is used to give gradient color
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
             ),
           ),
         ),
@@ -66,7 +66,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +106,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                             height: 180,
                             child: Center(
                               child: CircularProgressIndicator(
-                                color: GlobalVariables.selectedNavBarColor,
+                                color: GlobalVariables.SelectedNavBarColor,
                               ),
                             ),
                           )
@@ -157,7 +157,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                               color: GlobalVariables
-                                                  .selectedNavBarColor
+                                                      .SelectedNavBarColor
                                                   .withOpacity(0.3),
                                               width: 1.5),
                                           borderRadius:
@@ -199,8 +199,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                           Padding(
                                             padding: const EdgeInsets.only(
                                                 left: 10.0),
-                                            child:
-                                                rating_app(rating: avgRating),
+                                            child: RatingApp(rating: avgRating),
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.only(
@@ -210,7 +209,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                               style: TextStyle(
                                                   fontSize: 18,
                                                   color: GlobalVariables
-                                                      .selectedNavBarColor,
+                                                      .SelectedNavBarColor,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                           ),
@@ -276,7 +275,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                                             FontWeight.w600,
                                                         fontSize: 18,
                                                         color: GlobalVariables
-                                                            .selectedNavBarColor),
+                                                            .SelectedNavBarColor),
                                                   ),
                                                 )),
                                           ),

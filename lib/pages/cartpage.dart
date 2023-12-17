@@ -1,10 +1,10 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/pages/addressScreen.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/widgets/button.dart';
-import 'package:amazonclone/widgets/cart_product.dart';
-import 'package:amazonclone/widgets/cart_subtotal.dart';
+import 'package:amazonclone/widgets/CustomButton.dart';
+import 'package:amazonclone/widgets/CartProduct.dart';
+import 'package:amazonclone/widgets/TotalCheckout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +32,7 @@ class _cartpageState extends State<cartpage> {
           automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -53,7 +53,7 @@ class _cartpageState extends State<cartpage> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +108,7 @@ class _cartpageState extends State<cartpage> {
                                   Radius.circular(7),
                                 ),
                                 borderSide: BorderSide(
-                                  color: GlobalVariables.selectedNavBarColor,
+                                  color: GlobalVariables.SelectedNavBarColor,
                                   width: 1,
                                 ),
                               ),
@@ -170,7 +170,7 @@ class _cartpageState extends State<cartpage> {
                         itemCount: user.user.cart.length,
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
-                          return cart_product(index: index);
+                          return CartProduct(index: index);
                         }),
                   ),
           ),
@@ -240,11 +240,11 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          const total_checkout(),
+          const TotalCheckout(),
           user.user.cart.isNotEmpty
               ? Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: custom_btn(
+                  child: CustomButton(
                     text: 'Proceed to CheckOut ${user.user.cart.length} items',
                     onTap: () {
                       Navigator.pushNamed(context, addressForm.routeName,

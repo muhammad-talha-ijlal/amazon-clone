@@ -1,4 +1,4 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/pages/admin_bottom_bar.dart';
 import 'package:amazonclone/pages/auth_screen.dart';
 import 'package:amazonclone/pages/home.dart';
@@ -25,7 +25,7 @@ void main() async {
           scaffoldBackgroundColor: GlobalVariables.backgroundColor,
           colorScheme:
               // sets the primary color of every widget is golden
-              const ColorScheme.light(primary: GlobalVariables.secondaryColor),
+              const ColorScheme.light(primary: GlobalVariables.SecondaryColor),
           appBarTheme: const AppBarTheme(
               // for whole project this app bar settings get applied to app bar
               elevation: 0,

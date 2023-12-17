@@ -1,5 +1,5 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/pages/orderdetails.dart';
 import 'package:amazonclone/services/admin_services.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
           flexibleSpace: Container(
             // flexible space is used to give gradient color
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -54,7 +54,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +90,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                     height: 300,
                     child: const Center(
                       child: CircularProgressIndicator(
-                        color: GlobalVariables.secondaryColor,
+                        color: GlobalVariables.SecondaryColor,
                       ),
                     ),
                   )
@@ -128,7 +128,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: GlobalVariables.selectedNavBarColor
+                                      color: GlobalVariables.SelectedNavBarColor
                                           .withOpacity(0.3),
                                       width: 1.5),
                                   borderRadius: BorderRadius.circular(10),
@@ -169,7 +169,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                                       style: TextStyle(
                                           fontSize: 18,
                                           color: GlobalVariables
-                                              .selectedNavBarColor,
+                                              .SelectedNavBarColor,
                                           fontWeight: FontWeight.w500),
                                     ),
                                   ),
@@ -187,7 +187,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                                       style: TextStyle(
                                           fontSize: 18,
                                           color: GlobalVariables
-                                              .unselectedNavBarColor
+                                                  .UnselectedNavBarColor
                                               .withOpacity(0.7),
                                           fontWeight: FontWeight.w500),
                                     ),
@@ -215,7 +215,7 @@ class _ordered_admin_screenState extends State<ordered_admin_screen> {
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 18,
                                                 color: GlobalVariables
-                                                    .selectedNavBarColor),
+                                                    .SelectedNavBarColor),
                                           ),
                                         ),
                                       )),

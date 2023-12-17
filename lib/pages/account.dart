@@ -1,15 +1,15 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/main.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/pages/auth_screen.dart';
 import 'package:amazonclone/pages/myorder.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/home_services.dart';
 import 'package:amazonclone/services/services_auth.dart';
-import 'package:amazonclone/widgets/order.dart';
+import 'package:amazonclone/widgets/OrderProduct.dart';
 // import 'package:amazonclone/widgets/searched_product.dart';
-import 'package:amazonclone/widgets/top_button.dart';
+import 'package:amazonclone/widgets/TopButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -53,7 +53,7 @@ class _AccountScreenState extends State<AccountScreen> {
           flexibleSpace: Container(
             // flexible space is used to give gradient color
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -63,7 +63,7 @@ class _AccountScreenState extends State<AccountScreen> {
             Container(
               padding: const EdgeInsets.fromLTRB(5, 8, 3, 2),
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -197,7 +197,7 @@ class _AccountScreenState extends State<AccountScreen> {
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 18,
-                              color: GlobalVariables.selectedNavBarColor),
+                              color: GlobalVariables.SelectedNavBarColor),
                         ),
                       ),
                     ),

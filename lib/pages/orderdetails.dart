@@ -1,11 +1,11 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/pages/searched_product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/admin_services.dart';
-import 'package:amazonclone/widgets/button.dart';
-import 'package:amazonclone/widgets/ordered_widget.dart';
+import 'package:amazonclone/widgets/CustomButton.dart';
+import 'package:amazonclone/widgets/OrderedProducts.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -48,7 +48,7 @@ class _orderDetailsState extends State<orderDetails> {
           automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -75,7 +75,7 @@ class _orderDetailsState extends State<orderDetails> {
                         // padding: const EdgeInsets.only(top: 5),
                         height: 50,
                         decoration: const BoxDecoration(
-                            gradient: GlobalVariables.appBarGradient),
+                            gradient: GlobalVariables.AppBarGradient),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -128,7 +128,7 @@ class _orderDetailsState extends State<orderDetails> {
                         // padding: const EdgeInsets.only(top: 5),
                         height: 50,
                         decoration: const BoxDecoration(
-                            gradient: GlobalVariables.appBarGradient),
+                            gradient: GlobalVariables.AppBarGradient),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -183,7 +183,7 @@ class _orderDetailsState extends State<orderDetails> {
                                       ),
                                       borderSide: BorderSide(
                                         color:
-                                            GlobalVariables.selectedNavBarColor,
+                                            GlobalVariables.SelectedNavBarColor,
                                         width: 1,
                                       ),
                                     ),
@@ -312,7 +312,7 @@ class _orderDetailsState extends State<orderDetails> {
                           ? Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 8),
-                              child: custom_btn(
+                              child: CustomButton(
                                   text: 'Done',
                                   onTap: () async {
                                     // update order
@@ -325,7 +325,7 @@ class _orderDetailsState extends State<orderDetails> {
                                       curr_step++;
 
                                       setState(() {
-                                        snackbar(context, "Order Updated");
+                                        Snackbar(context, "Order Updated");
                                       });
                                     }
                                   }),
@@ -349,9 +349,9 @@ class _orderDetailsState extends State<orderDetails> {
                                 : Text(
                                     'We got Your order',
                                     style: TextStyle(
-                                        color: GlobalVariables
-                                            .selectedNavBarColor
-                                            .withOpacity(0.8),
+                                        color:
+                                            GlobalVariables.SelectedNavBarColor
+                                                .withOpacity(0.8),
                                         fontSize: 17,
                                         fontWeight: FontWeight.w500),
                                   ),
@@ -375,9 +375,9 @@ class _orderDetailsState extends State<orderDetails> {
                                 : Text(
                                     'On The Way',
                                     style: TextStyle(
-                                        color: GlobalVariables
-                                            .selectedNavBarColor
-                                            .withOpacity(0.8),
+                                        color:
+                                            GlobalVariables.SelectedNavBarColor
+                                                .withOpacity(0.8),
                                         fontSize: 17,
                                         fontWeight: FontWeight.w500),
                                   ),
@@ -401,9 +401,9 @@ class _orderDetailsState extends State<orderDetails> {
                                 : Text(
                                     'Out For Delivery',
                                     style: TextStyle(
-                                        color: GlobalVariables
-                                            .selectedNavBarColor
-                                            .withOpacity(0.8),
+                                        color:
+                                            GlobalVariables.SelectedNavBarColor
+                                                .withOpacity(0.8),
                                         fontSize: 17,
                                         fontWeight: FontWeight.w500),
                                   ),

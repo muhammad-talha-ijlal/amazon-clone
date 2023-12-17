@@ -1,16 +1,16 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class rating_app extends StatefulWidget {
-  const rating_app({super.key, required this.rating});
+class RatingApp extends StatefulWidget {
+  const RatingApp({super.key, required this.rating});
   final double rating;
 
   @override
-  State<rating_app> createState() => _rating_appState();
+  State<RatingApp> createState() => _RatingAppState();
 }
 
-class _rating_appState extends State<rating_app> {
+class _RatingAppState extends State<RatingApp> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +21,7 @@ class _rating_appState extends State<rating_app> {
           itemSize: 18,
           itemBuilder: (context, _) => const Icon(
                 Icons.star,
-                color: GlobalVariables.secondaryColor,
+                color: GlobalVariables.SecondaryColor,
               )),
     );
   }

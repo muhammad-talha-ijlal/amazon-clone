@@ -1,4 +1,4 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/pages/admin_order_details.dart';
 import 'package:amazonclone/pages/admin_screen.dart';
 import 'package:amazonclone/pages/analytics.dart';
@@ -40,8 +40,8 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
         elevation: 0,
         currentIndex: _page,
         selectedFontSize: 0,
-        selectedItemColor: GlobalVariables.selectedNavBarColor,
-        unselectedItemColor: GlobalVariables.unselectedNavBarColor,
+        selectedItemColor: GlobalVariables.SelectedNavBarColor,
+        unselectedItemColor: GlobalVariables.UnselectedNavBarColor,
         backgroundColor: GlobalVariables.backgroundColor,
 
         iconSize: 24,
@@ -58,7 +58,7 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
                         border: Border(
                             top: BorderSide(
                                 color: _page == 0
-                                    ? GlobalVariables.selectedNavBarColor
+                                    ? GlobalVariables.SelectedNavBarColor
                                     : GlobalVariables.backgroundColor,
                                 width: selectedborder))),
                     child: const Icon(Icons.home_outlined),
@@ -69,7 +69,7 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
                         style: TextStyle(
                             fontSize: font_size,
                             color: _page == 0
-                                ? GlobalVariables.selectedNavBarColor
+                                ? GlobalVariables.SelectedNavBarColor
                                 : Colors.black)),
                   )
                 ],
@@ -86,7 +86,7 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
                         border: Border(
                             top: BorderSide(
                                 color: _page == 1
-                                    ? GlobalVariables.selectedNavBarColor
+                                    ? GlobalVariables.SelectedNavBarColor
                                     : GlobalVariables.backgroundColor,
                                 width: selectedborder))),
                     child: const Icon(Icons.analytics_outlined),
@@ -97,7 +97,7 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
                         style: TextStyle(
                             fontSize: font_size,
                             color: _page == 1
-                                ? GlobalVariables.selectedNavBarColor
+                                ? GlobalVariables.SelectedNavBarColor
                                 : Colors.black)),
                   )
                 ],
@@ -115,7 +115,7 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
                         border: Border(
                             top: BorderSide(
                                 color: _page == 2
-                                    ? GlobalVariables.selectedNavBarColor
+                                    ? GlobalVariables.SelectedNavBarColor
                                     : GlobalVariables.backgroundColor,
                                 width: selectedborder))),
                     child: const Icon(Icons.all_inbox_outlined),
@@ -126,7 +126,7 @@ class _bottom_admin_barState extends State<bottom_admin_bar> {
                         style: TextStyle(
                             fontSize: font_size,
                             color: _page == 2
-                                ? GlobalVariables.selectedNavBarColor
+                                ? GlobalVariables.SelectedNavBarColor
                                 : Colors.black)),
                   )
                 ],

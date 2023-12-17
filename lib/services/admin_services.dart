@@ -3,12 +3,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:amazonclone/const/error_handl.dart';
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/const/ErrorHandler.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/model/sales.dart';
+import 'package:amazonclone/model/Sales.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -64,18 +64,18 @@ class adminServices {
           },
           body: product.toJson());
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
-            snackbar(context, "Product Added Successfully");
+            Snackbar(context, "Product Added Successfully");
             Navigator.pop(context);
           });
 
       // post api server
     } catch (e) {
       Navigator.pop(context);
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -90,7 +90,7 @@ class adminServices {
         },
       );
 // .fromJson acept only the string so first res.body gives the raw which we decode so we get map list then we used index to access particular item and then that item get encodeed to string
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -102,7 +102,7 @@ class adminServices {
             });
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
     return productList;
   }
@@ -120,17 +120,17 @@ class adminServices {
               },
               body: jsonEncode({"id": product.id})); // encoding
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
             onSuccess;
           });
 
-      snackbar(context, "Product deleted");
+      Snackbar(context, "Product deleted");
       return true;
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
       return false;
     }
   }
@@ -145,7 +145,7 @@ class adminServices {
         },
       );
 // .fromJson acept only the string so first res.body gives the raw which we decode so we get map list then we used index to access particular item and then that item get encodeed to string
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -158,7 +158,7 @@ class adminServices {
             }
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
     return productList;
   }
@@ -176,10 +176,10 @@ class adminServices {
           },
           body: jsonEncode({"id": order.id, "status": status})); // encoding
 
-      httpsError(response: res, context: context, onSucces: () {});
+      HttpsError(response: res, context: context, onSucces: () {});
       return true;
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
       return false;
     }
   }
@@ -196,7 +196,7 @@ class adminServices {
         },
       );
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -211,7 +211,7 @@ class adminServices {
             ];
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
 
     return {'sales': sales, 'totalEarnings': totalEarning};
@@ -226,14 +226,14 @@ class adminServices {
           },
           body: jsonEncode({'userId': userProvider.user.id}));
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
-            snackbar(context, "Welcome ${userProvider.user.name}");
+            Snackbar(context, "Welcome ${userProvider.user.name}");
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 }

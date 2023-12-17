@@ -1,8 +1,8 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/productdetails.dart';
 import 'package:amazonclone/services/home_services.dart';
-import 'package:amazonclone/widgets/searched_product.dart';
+import 'package:amazonclone/widgets/SeacrhResultProduct.dart';
 import 'package:flutter/material.dart';
 
 class explore extends StatefulWidget {
@@ -45,7 +45,7 @@ class _exploreState extends State<explore> {
             automaticallyImplyLeading: false,
             flexibleSpace: Container(
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
             ),
           ),
         ),
@@ -57,7 +57,7 @@ class _exploreState extends State<explore> {
                       height: 180,
                       child: Center(
                         child: CircularProgressIndicator(
-                          color: GlobalVariables.selectedNavBarColor,
+                          color: GlobalVariables.SelectedNavBarColor,
                         ),
                       ),
                     )
@@ -87,7 +87,7 @@ class _exploreState extends State<explore> {
                                     context, ProductDetailScreen.routeName,
                                     arguments: product_list[index]);
                               },
-                              child: search_result_prodcut(
+                              child: SeacrhResultProduct(
                                   product: product_list[index]),
                             );
                           }),

@@ -2,9 +2,9 @@
 
 import 'dart:convert';
 
-import 'package:amazonclone/const/error_handl.dart';
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
+import 'package:amazonclone/const/ErrorHandler.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:flutter/material.dart';
@@ -26,14 +26,14 @@ class ProductDetailsServices {
           },
           body:
               jsonEncode({'id': product.id, 'rating': rating, 'userId': user}));
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
-            snackbar(context, "Thank Your for Rating");
+            Snackbar(context, "Thank Your for Rating");
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -53,7 +53,7 @@ class ProductDetailsServices {
           },
           body:
               jsonEncode({'id': product.id, 'user_id': userProvider.user.id}));
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -63,10 +63,10 @@ class ProductDetailsServices {
 
             // userProvider.user gives an instance of user stored in provider
             userProvider.setUserFrommodel(temp);
-            snackbar(context, "Added to cart");
+            Snackbar(context, "Added to cart");
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -87,7 +87,7 @@ class ProductDetailsServices {
           body:
               jsonEncode({'id': product.id, 'user_id': userProvider.user.id}));
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -99,7 +99,7 @@ class ProductDetailsServices {
             userProvider.setUserFrommodel(temp);
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 }

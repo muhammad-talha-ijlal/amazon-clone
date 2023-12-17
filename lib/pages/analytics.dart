@@ -1,5 +1,5 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/model/sales.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/model/Sales.dart';
 import 'package:amazonclone/services/admin_services.dart';
 // import 'package:amazonclone/widgets/charts.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +39,7 @@ class _analyticsState extends State<analytics> {
           flexibleSpace: Container(
             // flexible space is used to give gradient color
             decoration:
-                const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
           ),
         ),
       ),
@@ -55,7 +55,7 @@ class _analyticsState extends State<analytics> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,7 +91,7 @@ class _analyticsState extends State<analytics> {
                     height: 500,
                     child: const Center(
                       child: CircularProgressIndicator(
-                        color: GlobalVariables.secondaryColor,
+                        color: GlobalVariables.SecondaryColor,
                       ),
                     ))
                 : Container(

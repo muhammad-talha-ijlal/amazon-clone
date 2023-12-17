@@ -1,4 +1,4 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +56,7 @@ class _OrderedProductsState extends State<OrderedProducts> {
                         "\$${widget.product.price}",
                         style: TextStyle(
                             fontSize: 16,
-                            color: GlobalVariables.selectedNavBarColor,
+                            color: GlobalVariables.SelectedNavBarColor,
                             fontWeight: FontWeight.w500),
                       ),
                     ),
@@ -66,7 +66,7 @@ class _OrderedProductsState extends State<OrderedProducts> {
                         "Qty: ${widget.quantity}",
                         style: TextStyle(
                             fontSize: 14,
-                            color: GlobalVariables.selectedNavBarColor,
+                            color: GlobalVariables.SelectedNavBarColor,
                             fontWeight: FontWeight.w500),
                       ),
                     ),

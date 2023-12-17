@@ -1,7 +1,7 @@
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/model/order.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/model/Order.dart';
 import 'package:amazonclone/services/home_services.dart';
-import 'package:amazonclone/widgets/order.dart';
+import 'package:amazonclone/widgets/OrderProduct.dart';
 import 'package:flutter/material.dart';
 
 class orderAll extends StatefulWidget {
@@ -43,7 +43,7 @@ class _orderAllState extends State<orderAll> {
             flexibleSpace: Container(
               // flexible space is used to give gradient color
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
             ),
           ),
         ),
@@ -61,7 +61,7 @@ class _orderAllState extends State<orderAll> {
                   // padding: const EdgeInsets.only(top: 5),
                   height: 50,
                   decoration: const BoxDecoration(
-                      gradient: GlobalVariables.appBarGradient),
+                      gradient: GlobalVariables.AppBarGradient),
                   child: const Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +89,7 @@ class _orderAllState extends State<orderAll> {
                             height: 180,
                             child: Center(
                               child: CircularProgressIndicator(
-                                color: GlobalVariables.selectedNavBarColor,
+                                color: GlobalVariables.SelectedNavBarColor,
                               ),
                             ),
                           )

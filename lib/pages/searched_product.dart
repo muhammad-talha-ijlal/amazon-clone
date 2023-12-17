@@ -1,10 +1,10 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 import 'package:amazonclone/model/product.dart';
 import 'package:amazonclone/pages/addressScreen.dart';
 import 'package:amazonclone/pages/productdetails.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:amazonclone/services/home_services.dart';
-import 'package:amazonclone/widgets/searched_product.dart';
+import 'package:amazonclone/widgets/SeacrhResultProduct.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -58,7 +58,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
             automaticallyImplyLeading: false,
             flexibleSpace: Container(
               decoration:
-                  const BoxDecoration(gradient: GlobalVariables.appBarGradient),
+                  const BoxDecoration(gradient: GlobalVariables.AppBarGradient),
             ),
           ),
         ),
@@ -87,7 +87,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
                     // padding: const EdgeInsets.only(top: 5),
                     height: 50,
                     decoration: const BoxDecoration(
-                        gradient: GlobalVariables.appBarGradient),
+                        gradient: GlobalVariables.AppBarGradient),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -145,7 +145,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
                                     Radius.circular(7),
                                   ),
                                   borderSide: BorderSide(
-                                    color: GlobalVariables.selectedNavBarColor,
+                                    color: GlobalVariables.SelectedNavBarColor,
                                     width: 1,
                                   ),
                                 ),
@@ -192,7 +192,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
                       height: 180,
                       child: Center(
                         child: CircularProgressIndicator(
-                          color: GlobalVariables.selectedNavBarColor,
+                          color: GlobalVariables.SelectedNavBarColor,
                         ),
                       ),
                     )
@@ -222,7 +222,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
                                     context, ProductDetailScreen.routeName,
                                     arguments: product_list[index]);
                               },
-                              child: search_result_prodcut(
+                              child: SeacrhResultProduct(
                                   product: product_list[index]),
                             );
                           }),

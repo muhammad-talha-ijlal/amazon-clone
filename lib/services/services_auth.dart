@@ -2,10 +2,10 @@
 
 import 'dart:convert';
 
-import 'package:amazonclone/const/error_handl.dart';
-import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/const/snackbar.dart';
-import 'package:amazonclone/model/user.dart';
+import 'package:amazonclone/const/ErrorHandler.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
+import 'package:amazonclone/const/Snackbar.dart';
+import 'package:amazonclone/model/User.dart';
 import 'package:amazonclone/pages/home.dart';
 import 'package:amazonclone/providers/userproviders.dart';
 import 'package:flutter/material.dart';
@@ -42,14 +42,14 @@ class auth_service {
       print(res.statusCode);
 
       // snack bar and https error
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
-            snackbar(context, "Account Creation Success");
+            Snackbar(context, "Account Creation Success");
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -69,7 +69,7 @@ class auth_service {
       print(res.statusCode);
 
       // snack bar and https error
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () async {
@@ -84,7 +84,7 @@ class auth_service {
                 context, home.routeName, (route) => false);
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -108,7 +108,7 @@ class auth_service {
         Provider.of<UserProvider>(context, listen: false).setUser(res.body);
       }
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -121,14 +121,14 @@ class auth_service {
           },
           body: jsonEncode({'userId': userProvider.user.id}));
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
-            snackbar(context, "Welcome Admin");
+            Snackbar(context, "Welcome Admin");
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -149,7 +149,7 @@ class auth_service {
           body: jsonEncode(
               {'address': address, 'user_id': userProvider.user.id}));
 
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -160,10 +160,10 @@ class auth_service {
             // userProvider.user gives an instance of user stored in provider
             userProvider.setUserFrommodel(temp);
 
-            snackbar(context, "Address Updated");
+            Snackbar(context, "Address Updated");
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -187,7 +187,7 @@ class auth_service {
             'address': address,
             'totalPrice': totalSum
           }));
-      httpsError(
+      HttpsError(
           response: res,
           context: context,
           onSucces: () {
@@ -196,13 +196,13 @@ class auth_service {
 
             // userProvider.user gives an instance of user stored in provider
             userProvider.setUserFrommodel(temp);
-            snackbar(context, "Your Order is Placed");
+            Snackbar(context, "Your Order is Placed");
             Future.delayed(const Duration(seconds: 4), () {
               Navigator.pop(context);
             });
           });
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 
@@ -213,7 +213,7 @@ class auth_service {
       prefs.setString("x-auth-mail", "");
       prefs.setString("x-auth-pass", "");
     } catch (e) {
-      snackbar(context, e.toString());
+      Snackbar(context, e.toString());
     }
   }
 }

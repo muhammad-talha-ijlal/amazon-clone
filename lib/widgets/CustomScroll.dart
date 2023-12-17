@@ -1,19 +1,19 @@
-import 'package:amazonclone/const/global_var.dart';
+import 'package:amazonclone/const/GlobalVariables.dart';
 
 import 'package:amazonclone/pages/category_deals.dart';
 
-import 'package:amazonclone/widgets/caraoselimage.dart';
-import 'package:amazonclone/widgets/dealofday.dart';
+import 'package:amazonclone/widgets/CarouselImages.dart';
+import 'package:amazonclone/widgets/DealOfDay.dart';
 import 'package:flutter/material.dart';
 
-class customeScroll extends StatefulWidget {
-  const customeScroll({super.key});
+class CustomScroll extends StatefulWidget {
+  const CustomScroll({super.key});
 
   @override
-  State<customeScroll> createState() => _customeScrollState();
+  State<CustomScroll> createState() => _CustomScrollState();
 }
 
-class _customeScrollState extends State<customeScroll> {
+class _CustomScrollState extends State<CustomScroll> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +28,7 @@ class _customeScrollState extends State<customeScroll> {
                 color: Colors.white,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: GlobalVariables.categoryImages.length,
+                    itemCount: GlobalVariables.CategoryImages.length,
                     itemExtent: MediaQuery.of(context).size.width *
                         0.2, // extent the list items  evenly
                     itemBuilder: ((context, index) {
@@ -39,7 +39,7 @@ class _customeScrollState extends State<customeScroll> {
                               Navigator.pushNamed(
                                   context, CategoryScreen.routeName,
                                   arguments: GlobalVariables
-                                      .categoryImages[index]['title']
+                                      .CategoryImages[index]['title']
                                       .toString());
                             },
                             child: Container(
@@ -48,7 +48,7 @@ class _customeScrollState extends State<customeScroll> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  GlobalVariables.categoryImages[index]['image']
+                                  GlobalVariables.CategoryImages[index]['image']
                                       .toString(),
                                   fit: BoxFit.cover,
                                   height: 30,
@@ -61,7 +61,7 @@ class _customeScrollState extends State<customeScroll> {
                             height: 4,
                           ),
                           Text(
-                            GlobalVariables.categoryImages[index]['title']
+                            GlobalVariables.CategoryImages[index]['title']
                                 .toString(),
                             style: const TextStyle(
                                 fontSize: 12, fontWeight: FontWeight.w400),
@@ -72,7 +72,7 @@ class _customeScrollState extends State<customeScroll> {
             const SizedBox(
               height: 10,
             ),
-            const carouselImages(),
+            const CarouselImages(),
             const DealOfDay(),
           ],
         )

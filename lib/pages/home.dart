@@ -1,6 +1,6 @@
 import 'package:amazonclone/pages/auth_screen.dart';
 import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/widgets/bottomnav.dart';
+import 'package:amazonclone/widgets/BottomNavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +17,7 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-      bottomNavigationBar: BottomBar(),
+      bottomNavigationBar: BottomNavBar(),
       appBar: AppBar(
         title: const Text("hello"),
       ),
