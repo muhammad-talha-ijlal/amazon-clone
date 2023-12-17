@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/const/snackbar.dart';
-import 'package:amazonclone/services/admin_services.dart';
+import 'package:amazonclone/services/AdminService.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/field.dart';
 import 'package:file_picker/file_picker.dart';
@@ -31,16 +31,16 @@ Future<List<File>> pickImages() async {
   return images;
 }
 
-class add_product_screen extends StatefulWidget {
-  const add_product_screen({super.key});
+class AddProductScreen extends StatefulWidget {
+  const AddProductScreen({super.key});
   static const String routeName = '/add-product';
 
   @override
-  State<add_product_screen> createState() => _add_product_screenState();
+  State<AddProductScreen> createState() => _add_product_screenState();
 }
 
-class _add_product_screenState extends State<add_product_screen> {
-  final adminServices admin = adminServices();
+class _add_product_screenState extends State<AddProductScreen> {
+  final AdminService admin = AdminService();
   final Formkey = GlobalKey<FormState>();
   TextEditingController productNameControl = TextEditingController();
   TextEditingController descrpControl = TextEditingController();

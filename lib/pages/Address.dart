@@ -1,17 +1,17 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/const/snackbar.dart';
 import 'package:amazonclone/model/Address.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:amazonclone/services/DatabaseService.dart';
-import 'package:amazonclone/services/services_auth.dart';
+import 'package:amazonclone/services/AuthService.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
-class addressForm extends StatefulWidget {
-  addressForm({
+class AddressScreen extends StatefulWidget {
+  AddressScreen({
     super.key,
     required this.isPay,
   });
@@ -19,16 +19,16 @@ class addressForm extends StatefulWidget {
   bool isPay = false;
 
   @override
-  State<addressForm> createState() => _addressFormState();
+  State<AddressScreen> createState() => _addressFormState();
 }
 
-class _addressFormState extends State<addressForm> {
+class _addressFormState extends State<AddressScreen> {
   final TextEditingController flat = TextEditingController();
   final TextEditingController area = TextEditingController();
   final TextEditingController pinode = TextEditingController();
   final TextEditingController city = TextEditingController();
 
-  final auth_service authServ = auth_service();
+  final AuthService authServ = AuthService();
 
   String address = "";
 

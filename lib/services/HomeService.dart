@@ -7,12 +7,12 @@ import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/const/snackbar.dart';
 import 'package:amazonclone/model/order.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-class home_back_services {
+class HomeService {
   // function to get category wise products
   Future<List<Product>> fetchCategoryProducts(
       {required BuildContext context, required String category}) async {

@@ -1,7 +1,7 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/product_details_services.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/ProductService.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class cart_product extends StatefulWidget {
 }
 
 class _cart_productState extends State<cart_product> {
-  final ProductDetailsServices serv = ProductDetailsServices();
+  final ProductService serv = ProductService();
   void increaseQuantity(Product product) {
     serv.addCart(context: context, product: product);
   }

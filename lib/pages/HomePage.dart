@@ -1,20 +1,20 @@
 import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/pages/addressScreen.dart';
-import 'package:amazonclone/pages/searched_product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/pages/Address.dart';
+import 'package:amazonclone/pages/SearchedProduct.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 
 import 'package:amazonclone/widgets/scrollhome.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class home_actual_page extends StatefulWidget {
-  const home_actual_page({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<home_actual_page> createState() => _home_actual_pageState();
+  State<HomePage> createState() => _home_actual_pageState();
 }
 
-class _home_actual_pageState extends State<home_actual_page> {
+class _home_actual_pageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     void navigateTosearchScreen(String query) {
@@ -145,7 +145,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
     final user = Provider.of<UserProvider>(context).user;
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, addressForm.routeName, arguments: false);
+        Navigator.pushNamed(context, AddressScreen.routeName, arguments: false);
       },
       child: Container(
         height: 40,

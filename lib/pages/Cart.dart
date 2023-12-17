@@ -1,21 +1,21 @@
 import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/pages/addressScreen.dart';
-import 'package:amazonclone/pages/searched_product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/pages/Address.dart';
+import 'package:amazonclone/pages/SearchedProduct.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/cart_product.dart';
 import 'package:amazonclone/widgets/cart_subtotal.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class cartpage extends StatefulWidget {
-  const cartpage({super.key});
+class CartScreen extends StatefulWidget {
+  const CartScreen({super.key});
 
   @override
-  State<cartpage> createState() => _cartpageState();
+  State<CartScreen> createState() => _cartpageState();
 }
 
-class _cartpageState extends State<cartpage> {
+class _cartpageState extends State<CartScreen> {
   TextEditingController search = TextEditingController();
   void navigateTosearchScreen(String query) {
     Navigator.pushNamed(context, SearchedScreen.routeName, arguments: query);
@@ -191,7 +191,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, addressForm.routeName,
+              Navigator.pushNamed(context, AddressScreen.routeName,
                   arguments: false);
             },
             child: Container(
@@ -247,7 +247,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
                   child: custom_btn(
                     text: 'Proceed to CheckOut ${user.user.cart.length} items',
                     onTap: () {
-                      Navigator.pushNamed(context, addressForm.routeName,
+                      Navigator.pushNamed(context, AddressScreen.routeName,
                           arguments: true);
                     },
                     color: Colors.yellow[600],

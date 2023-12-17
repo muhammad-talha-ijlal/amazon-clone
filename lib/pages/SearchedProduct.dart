@@ -1,9 +1,9 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/addressScreen.dart';
-import 'package:amazonclone/pages/productdetails.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/home_services.dart';
+import 'package:amazonclone/pages/Address.dart';
+import 'package:amazonclone/pages/ProductPage.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/HomeService.dart';
 import 'package:amazonclone/widgets/searched_product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +23,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
 
 // function to fetch the searched products
   fetchedProdcuts() async {
-    home_back_services sev = home_back_services();
+    HomeService sev = HomeService();
     product_list = await sev.fetchSearchProducts(
         context: context, query: widget.searchquery);
 
@@ -33,7 +33,7 @@ class _SearchedScreenState extends State<SearchedScreen> {
   }
 
   void search_again(String search) async {
-    home_back_services sev = home_back_services();
+    HomeService sev = HomeService();
     product_list =
         await sev.fetchSearchProducts(context: context, query: search);
 
@@ -239,7 +239,7 @@ class MySliverPersistentHeaderDelegate extends SliverPersistentHeaderDelegate {
     final user = Provider.of<UserProvider>(context).user;
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, addressForm.routeName, arguments: false);
+        Navigator.pushNamed(context, AddressScreen.routeName, arguments: false);
       },
       child: Container(
         height: 40,

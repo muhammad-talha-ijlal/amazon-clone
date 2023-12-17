@@ -1,5 +1,5 @@
-import 'package:amazonclone/pages/auth_screen.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/pages/AuthPage.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:amazonclone/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

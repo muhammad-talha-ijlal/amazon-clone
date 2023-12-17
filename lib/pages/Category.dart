@@ -1,7 +1,7 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/productdetails.dart';
-import 'package:amazonclone/services/home_services.dart';
+import 'package:amazonclone/pages/ProductPage.dart';
+import 'package:amazonclone/services/HomeService.dart';
 import 'package:amazonclone/widgets/stars.dart';
 import 'package:flutter/material.dart';
 
@@ -15,12 +15,12 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  List<Product> product_list = [];
-  home_back_services serv = home_back_services();
+  List<Product> productList = [];
+  HomeService serv = HomeService();
   bool isLoading = true;
 
   void fetchcatproducts() async {
-    product_list = await serv.fetchCategoryProducts(
+    productList = await serv.fetchCategoryProducts(
         context: context, category: widget.category);
     isLoading = false;
 
@@ -110,7 +110,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               ),
                             ),
                           )
-                        : product_list.isEmpty
+                        : productList.isEmpty
                             ? Opacity(
                                 opacity: 0.4,
                                 child: Container(
@@ -128,7 +128,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                 physics:
                                     NeverScrollableScrollPhysics(), // otherwise it will not scroll
                                 scrollDirection: Axis.vertical,
-                                itemCount: product_list.length,
+                                itemCount: productList.length,
                                 shrinkWrap: true,
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
@@ -139,17 +139,17 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                   double totalrating = 0;
                                   double avgRating = 0;
                                   for (var i = 0;
-                                      i < product_list[index].rating!.length;
+                                      i < productList[index].rating!.length;
                                       i++) {
                                     totalrating +=
-                                        product_list[index].rating![i].rating;
+                                        productList[index].rating![i].rating;
                                   }
 
                                   if (totalrating != 0) {
                                     avgRating = totalrating /
-                                        product_list[index].rating!.length;
+                                        productList[index].rating!.length;
                                   }
-                                  Product product = product_list[index];
+                                  Product product = productList[index];
                                   return Container(
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 5, vertical: 8),
@@ -250,7 +250,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                               Navigator.pushNamed(context,
                                                   ProductDetailScreen.routeName,
                                                   arguments:
-                                                      product_list[index]);
+                                                      productList[index]);
                                             },
                                             child: Container(
                                                 width: MediaQuery.of(context)

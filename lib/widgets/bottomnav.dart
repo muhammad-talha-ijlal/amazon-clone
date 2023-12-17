@@ -1,10 +1,10 @@
 import 'package:amazonclone/const/global_var.dart';
-import 'package:amazonclone/pages/account.dart';
-import 'package:amazonclone/pages/cartpage.dart';
-import 'package:amazonclone/pages/explore.dart';
-import 'package:amazonclone/pages/home_page.dart';
-import 'package:amazonclone/pages/myorder.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/pages/Account.dart';
+import 'package:amazonclone/pages/Cart.dart';
+import 'package:amazonclone/pages/Explore.dart';
+import 'package:amazonclone/pages/HomePage.dart';
+import 'package:amazonclone/pages/OrderPage.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:provider/provider.dart'; // ussed to show number in the icons
@@ -25,11 +25,11 @@ class _BottomBarState extends State<BottomBar> {
   double font_size = 12;
 
   List<Widget> pages = [
-    const home_actual_page(),
+    const HomePage(),
     const AccountScreen(),
-    const explore(searchquery: ""),
-    const cartpage(),
-    orderAll()
+    const Explore(searchquery: ""),
+    const CartScreen(),
+    OrderScreen()
   ];
 
   void updatepage(int page) {

@@ -1,21 +1,21 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/order.dart';
-import 'package:amazonclone/services/home_services.dart';
+import 'package:amazonclone/services/HomeService.dart';
 import 'package:amazonclone/widgets/order.dart';
 import 'package:flutter/material.dart';
 
-class orderAll extends StatefulWidget {
-  const orderAll({
+class OrderScreen extends StatefulWidget {
+  const OrderScreen({
     super.key,
   });
 
   @override
-  State<orderAll> createState() => _orderAllState();
+  State<OrderScreen> createState() => _orderAllState();
 }
 
-class _orderAllState extends State<orderAll> {
+class _orderAllState extends State<OrderScreen> {
   List<Order> orderList = [];
-  home_back_services serv = home_back_services();
+  HomeService serv = HomeService();
   bool isLoading = true;
 
   void fetchcatproducts() async {

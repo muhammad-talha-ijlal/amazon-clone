@@ -1,8 +1,8 @@
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/pages/searched_product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
-import 'package:amazonclone/services/product_details_services.dart';
+import 'package:amazonclone/pages/SearchedProduct.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
+import 'package:amazonclone/services/ProductService.dart';
 import 'package:amazonclone/widgets/button.dart';
 import 'package:amazonclone/widgets/stars.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -20,10 +20,10 @@ class ProductDetailScreen extends StatefulWidget {
 }
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
-  late List<Product> product_list;
+  late List<Product> productList;
   bool isLoading = false;
-  int curr_page = 0;
-  void search_again(String search) async {
+  int currentPage = 0;
+  void searchAgain(String search) async {
     Navigator.pushNamed(context, SearchedScreen.routeName, arguments: search);
   }
 
@@ -50,13 +50,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   }
 
   void addTocart() {
-    ProductDetailsServices pred = ProductDetailsServices();
+    ProductService pred = ProductService();
     pred.addCart(context: context, product: widget.product);
   }
 
   @override
   Widget build(BuildContext context) {
-    final ProductDetailsServices prd_serv = ProductDetailsServices();
+    final ProductService prd_serv = ProductService();
     final user = Provider.of<UserProvider>(context).user;
 
     return Scaffold(
@@ -108,7 +108,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           elevation: 1,
                           child: TextFormField(
                             onFieldSubmitted: (value) {
-                              search_again(value);
+                              searchAgain(value);
                             },
                             textInputAction: TextInputAction.search,
                             // on submission this widget get submitted
@@ -235,7 +235,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         }).toList(), // return list of widgets
                         options: CarouselOptions(
                             onPageChanged: (index, reason) {
-                              curr_page = index;
+                              currentPage = index;
                               setState(() {});
                             },
                             viewportFraction: 1, // fraction of veiport occupied
@@ -252,7 +252,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     const EdgeInsets.symmetric(horizontal: 4),
                                 child: CircleAvatar(
                                   radius: 5,
-                                  backgroundColor: curr_page != index
+                                  backgroundColor: currentPage != index
                                       ? GlobalVariables.unselectedNavBarColor
                                           .withOpacity(0.5)
                                       : GlobalVariables.selectedNavBarColor,

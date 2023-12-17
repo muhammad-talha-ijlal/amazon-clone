@@ -6,12 +6,12 @@ import 'package:amazonclone/const/error_handl.dart';
 import 'package:amazonclone/const/global_var.dart';
 import 'package:amazonclone/const/snackbar.dart';
 import 'package:amazonclone/model/product.dart';
-import 'package:amazonclone/providers/userproviders.dart';
+import 'package:amazonclone/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-class ProductDetailsServices {
+class ProductService {
   void rateProduct(
       {required BuildContext context,
       required Product product,
@@ -62,7 +62,7 @@ class ProductDetailsServices {
                 userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
 
             // userProvider.user gives an instance of user stored in provider
-            userProvider.setUserFrommodel(temp);
+            userProvider.setUserFromModel(temp);
             snackbar(context, "Added to cart");
           });
     } catch (e) {
@@ -96,7 +96,7 @@ class ProductDetailsServices {
                 userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
 
             // userProvider.user gives an instance of user stored in provider
-            userProvider.setUserFrommodel(temp);
+            userProvider.setUserFromModel(temp);
           });
     } catch (e) {
       snackbar(context, e.toString());

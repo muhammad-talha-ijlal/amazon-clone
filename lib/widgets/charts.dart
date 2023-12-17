@@ -3,6 +3,7 @@ import 'package:amazonclone/model/sales.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SalesData extends StatefulWidget {
   List<Sales> sales;
   SalesData({super.key, required this.sales});
