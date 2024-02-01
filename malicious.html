@@ -1,0 +1,21 @@
+<!-- malicious.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious File</title>
+</head>
+<body>
+    <h1>This is a malicious file!</h1>
+    <p>Attempt to read sensitive file:</p>
+    <pre>
+      <!-- Example: Attempting to read sensitive files -->
+      <% const fs = require('fs');
+      const contents = fs.readFileSync('/etc/passwd', 'utf-8');
+      console.log(contents);
+      %>
+    </pre>
+</body>
+</html>
